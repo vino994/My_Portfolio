@@ -1,0 +1,63 @@
+.education-section {
+  background-color: #111;
+}
+
+.timeline {
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 900px; /* keeps content centered */
+  padding: 40px 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;  /* line stays in center */
+  width: 2px;
+  background: #555;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+}
+
+.timeline-item .timeline-content {
+  background: transparent;
+  border-left: 3px solid red;
+  padding: 20px;
+  max-width: 300px;
+}
+
+.timeline-item .timeline-year {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: #666;
+}
+
+/* Odd items -> left side */
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(odd) .timeline-year {
+  right: -70px; /* push year outside */
+}
+
+/* Even items -> right side */
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.timeline-item:nth-child(even) .timeline-year {
+  left: -70px; /* push year outside */
+}

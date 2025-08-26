@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+/* Container Split */
+.home-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.left-section, .right-section {
+  flex: 1;
+  position: relative;
+}
+
+.profile-img {
+  max-height: 700px;
+  width: 500px;
+  border-radius: 8px; /* optional: keep rounded edges */
+  margin-top: 50px;
+  /* Match background */
+  background-color: transparent; 
+  mix-blend-mode: lighten;  /* or try screen/overlay depending on your image */
+  
+  /* If photo background isn’t pure black */
+  filter: brightness(1.8) contrast(1.1); 
+
+  /* Optional fade edges */
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: cover;
+}
+
+
+/* Text clipping effect */
+.text-clip {
+  font-size: 8.5rem;
+  font-weight: bold;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  line-height:1;
+  filter: grayscale(100%);
+  /* Stretch background */
+  background-size: 100% 100%;   /* cover both lines */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Corner navigation text */
+.corner-text {
+  position: absolute;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color .25s ease, transform .15s ease;
+}
+.corner-text:hover { color: #ff3b3b; transform: translateY(-1px); }
+.top-center {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bottom-center {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left-center {
+  top: 50%;
+  left: 40px;
+  transform: rotate(-90deg) translateY(-50%);
+  transform-origin: left center;
+}
+
+.right-center {
+  top: 50%;
+  right: 40px;
+  transform: rotate(90deg) translateY(-50%);
+  transform-origin: right center;
+}
+
+.corner-text:hover {
+  color: #fff;
+  cursor: pointer;
+}
+/* keep image+text side by side full height */
+.home-container {
+  height: 100vh;
+  background: #111;
+}
+
+/* text side */
+.right-section {
+  flex: 1;
+  position: relative;
+  padding: 2rem;
+  color: white;
+}
+
+/* small intro "I'm" at top */
+.top-intro {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* big name should always show */
+

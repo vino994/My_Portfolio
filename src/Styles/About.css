@@ -1,0 +1,27 @@
+.about-section {
+  background-color: #111;
+  height: 100vh; 
+  align-items: center; 
+  display: flex;
+  justify-content: center;/* same black background */
+}
+
+.about-img {
+   max-height: 500px;
+  width: 600px;
+  transform: scale(2);
+  border-radius: 8px; /* optional: keep rounded edges */
+  margin-top: 50px;
+  /* Match background */
+  background-color: transparent; 
+  mix-blend-mode: lighten;  /* or try screen/overlay depending on your image */
+  
+  /* If photo background isn’t pure black */
+  filter: brightness(1.8) contrast(1.1); 
+
+  /* Optional fade edges */
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 95%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: cover;/* matches the black/white look */
+}

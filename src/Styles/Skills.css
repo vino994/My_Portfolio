@@ -1,0 +1,37 @@
+/* Dark section */
+.skills-dark { background:#0e0e0f; color:#d7d7d7; }
+
+.skills-title { color:#fff; font-weight:800; letter-spacing:2px; display:inline-block; position:relative; }
+.clients-title { color:#fff; font-weight:800; letter-spacing:1px; }
+.skills-sub { color:#ff3b3b; letter-spacing:3px; font-size:.85rem; text-transform:uppercase; }
+
+/* underline accent for title */
+.underline-wipe::after{
+  content:""; position:absolute; left:0; bottom:-8px; height:3px; width:100%;
+  background:#ff3b3b; border-radius:2px;
+}
+
+/* ring center text */
+.ring-percent{
+  width:68px; height:48px; display:flex; align-items:center; justify-content:center;
+  background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.08); border-radius:999px;
+  color:#fff; font-weight:800; font-size:1rem; margin:auto;
+}
+
+/* labels */
+.skill-item { display:flex; flex-direction:column; align-items:center; gap:.5rem; }
+.skill-label { color:#cfcfcf; font-size:.95rem; }
+
+/* clients */
+.clients-row { margin-top:10px; }
+.client-logo{
+  max-width:130px; height:auto; opacity:.55; filter:grayscale(100%) contrast(90%);
+  transition: opacity .2s ease, filter .2s ease, transform .2s ease; background-color: transparent;
+}
+.client-logo:hover{ opacity:1; filter:grayscale(0%); transform: translateY(-2px); }
+
+/* small screens */
+@media (max-width:575.98px){
+  .ring-percent { font-size:.95rem; }
+  .client-logo { max-width:110px; }
+}
