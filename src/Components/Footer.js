@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/Footer.css";
-import emailjs from '@emailjs/browser'; // ✅ Correct SDK
+import emailjs from '@emailjs/browser';
 
 const CONTACT = {
   name: "Vinoth Sanjeevi",
@@ -18,14 +18,13 @@ export default function Footer() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs.sendForm(
-      'service_lilibt4',   // ✅ Replace with your service ID
-      'template_oz519ja',           // ✅ Replace with your template ID
+      'service_lilibt4',
+      'template_oz519ja',
       form.current,
-      '-ofppnO1dVjdcg5jI'  // ✅ Replace with your public key
+      '-ofppnO1dVjdcg5jI'
     ).then(
-      (result) => {
+      () => {
         alert("✅ Message sent successfully!");
         form.current.reset();
       },
@@ -42,50 +41,43 @@ export default function Footer() {
         <div className="row g-4 align-items-stretch">
           {/* Contact Form */}
           <div className="col-12 col-lg-6 d-flex">
-            <div className="card glass flex-fill">
+            <div className="card glass flex-fill w-100">
               <div className="card-body">
                 <h4 className="footer-title mb-3">Let’s work together</h4>
                 <p className="text-muted small mb-4">
                   Have a project in mind? Drop a message or reach me at the details below.
                 </p>
 
-                <div className="row g-3 mb-4">
-                  <div className="col-12">
-                    <div className="d-flex align-items-start gap-3">
-                      <i className="bi bi-geo-alt fs-5 text-accent"></i>
-                      <div>
-                        <div className="small text-muted">Address</div>
-                        <div>{CONTACT.address}</div>
-                      </div>
+                <div className="row g-3 mb-4 contact-info-wrapper">
+                  <div className="col-12 d-flex align-items-start gap-3 contact-info">
+                    <i className="bi bi-geo-alt fs-5 text-accent"></i>
+                    <div>
+                      <div className="small text-muted">Address</div>
+                      <div>{CONTACT.address}</div>
                     </div>
                   </div>
-                  <div className="col-6">
-                    <div className="d-flex align-items-start gap-3">
-                      <i className="bi bi-telephone fs-5 text-accent"></i>
-                      <div>
-                        <div className="small text-muted">Phone</div>
-                        <a className="link-light text-decoration-none" href={`tel:${CONTACT.phone}`}>
-                          {CONTACT.phone}
-                        </a>
-                      </div>
+                  <div className="col-12 d-flex align-items-start gap-3 contact-info">
+                    <i className="bi bi-telephone fs-5 text-accent"></i>
+                    <div>
+                      <div className="small text-muted">Phone</div>
+                      <a className="link-light text-decoration-none" href={`tel:${CONTACT.phone}`}>
+                        {CONTACT.phone}
+                      </a>
                     </div>
                   </div>
-                  <div className="col-6">
-                    <div className="d-flex align-items-start gap-3">
-                      <i className="bi bi-envelope fs-5 text-accent"></i>
-                      <div>
-                        <div className="small text-muted">Email</div>
-                        <a className="link-light text-decoration-none" href={`mailto:${CONTACT.email}`}>
-                          {CONTACT.email}
-                        </a>
-                      </div>
+                  <div className="col-12 d-flex align-items-start gap-3 contact-info">
+                    <i className="bi bi-envelope fs-5 text-accent"></i>
+                    <div>
+                      <div className="small text-muted">Email</div>
+                      <a className="link-light text-decoration-none" href={`mailto:${CONTACT.email}`}>
+                        {CONTACT.email}
+                      </a>
                     </div>
                   </div>
                 </div>
 
-                {/* Contact Form */}
                 <form ref={form} onSubmit={sendEmail} className="row g-3">
-                  <div className="col-md-6">
+                  <div className="col-12 col-md-6">
                     <input
                       name="user_name"
                       className="form-control form-control-dark"
@@ -93,7 +85,7 @@ export default function Footer() {
                       required
                     />
                   </div>
-                  <div className="col-md-6">
+                  <div className="col-12 col-md-6">
                     <input
                       type="email"
                       name="user_email"
@@ -112,7 +104,7 @@ export default function Footer() {
                     />
                   </div>
                   <div className="col-12">
-                    <button type="submit" className="btn btn-danger px-4">Send Message</button>
+                    <button type="submit" className="btn btn-danger px-4 w-100 w-md-auto">Send Message</button>
                   </div>
                 </form>
               </div>
@@ -121,7 +113,7 @@ export default function Footer() {
 
           {/* Map */}
           <div className="col-12 col-lg-6 d-flex">
-            <div className="card glass p-2 flex-fill">
+            <div className="card glass p-2 flex-fill w-100">
               <div className="map-wrap rounded-3 overflow-hidden">
                 <iframe
                   title="My location map"
@@ -136,8 +128,8 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="footer-bottom d-flex flex-column flex-md-row align-items-center justify-content-between mt-4 pt-3 mb-5">
-          <div className="d-flex align-items-center gap-3 mb-3 mb-md-0">
+        <div className="footer-bottom d-flex flex-column flex-md-row align-items-center justify-content-between mt-4 pt-3 mb-5 text-center text-md-start">
+          <div className="d-flex align-items-center gap-3 mb-3 mb-md-0 justify-content-center justify-content-md-start flex-wrap">
             <a className="social" href="https://www.facebook.com/vinothkumar.sanjeevi/" aria-label="Facebook"><i className="bi bi-facebook" /></a>
             <a className="social" href="#" aria-label="Instagram"><i className="bi bi-instagram" /></a>
             <a className="social" href="#" aria-label="Dribbble"><i className="bi bi-dribbble" /></a>
