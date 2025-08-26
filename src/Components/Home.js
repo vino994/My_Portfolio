@@ -7,7 +7,7 @@ import Profile from "../Assets/profile2.png";
 
 function Home() {
   return (
-    <div className="home-container d-flex vh-100 position-relative">
+    <div className="home-container d-flex position-relative">
       {/* Left Section (Image) */}
       <div className="left-section d-flex justify-content-center align-items-center">
         <img src={Profile} alt="profile" className="profile-img" />
@@ -17,7 +17,10 @@ function Home() {
       <div className="right-section d-flex justify-content-center align-items-center">
         <h1
           className="fw-bold text-clip text-center"
-          style={{ backgroundImage: `url(${textBg})` }}
+          style={{
+            // supply the image once from React; positioning handled by CSS vars
+            backgroundImage: `linear-gradient(rgba(255,255,255,.42), rgba(255,255,255,.42)), url(${textBg})`,
+          }}
         >
           I'm <br />
           Vinoth <br />

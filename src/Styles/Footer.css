@@ -3,7 +3,9 @@
   color: #d7d7d7;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
-
+.footer-info{
+  color: #76a5b8;
+}
 .footer-title {
   color: #fff;
   font-weight: 800;

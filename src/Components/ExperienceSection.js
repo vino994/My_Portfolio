@@ -112,9 +112,9 @@ export default function ExperienceSection() {
         {/* Profiles (optional, you can customize or remove) */}
         <div className="row mt-6 align-items-start">
           <div className="col-12 col-md-5 d-flex gap-4  justify-content-center mb-4 mb-md-0 profiles-icons reveal fade-right">
-            <a href="#!" className="profile-pill">LinkedIn</a>
-            <a href="#!" className="profile-pill">GitHub</a>
-            <a href="#!" className="profile-pill">Portfolio</a>
+            <a href="https://www.linkedin.com/in/vinothkumar-sanjeevi/" className="profile-pill">LinkedIn</a>
+            <a href="https://github.com/vino994" className="profile-pill">GitHub</a>
+            <a href="https://vino994.github.io/My_Portfolio/" className="profile-pill">Portfolio</a>
           </div>
 
           <div className="col-12 col-md-7 reveal fade-left">

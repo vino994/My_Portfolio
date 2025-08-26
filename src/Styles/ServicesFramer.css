@@ -50,6 +50,9 @@ background: #111; border-radius: 16px; padding: 16px 16px 14px;
     url("../Assets/profile1.jpeg") center/cover no-repeat;  
        /* your image */
 }
+.service-info{
+  color: rgb(101, 123, 143);
+}
 .tool-pill {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 6px 10px; border-radius: 999px;

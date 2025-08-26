@@ -150,7 +150,7 @@ export default function ServicesFramer() {
                   <motion.div className="service-card" variants={fadeUp} whileHover={{ y: -4 }}>
                     <div className="service-icon"><i className={`bi ${s.icon}`} /></div>
                     <h6 className="mb-1">{s.title}</h6>
-                    <p className="mb-2 small text-muted">{s.text}</p>
+                    <p className="mb-2 small  service-info">{s.text}</p>
 
                     {/* Tool/logo badges */}
                     <div className="d-flex flex-wrap gap-2">

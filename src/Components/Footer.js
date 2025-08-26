@@ -44,7 +44,7 @@ export default function Footer() {
             <div className="card glass flex-fill w-100">
               <div className="card-body">
                 <h4 className="footer-title mb-3">Let’s work together</h4>
-                <p className="text-muted small mb-4">
+                <p className="footer-info small mb-4">
                   Have a project in mind? Drop a message or reach me at the details below.
                 </p>
 
