@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/My_Portfolio/static/css/main.e0bf2573.css",
-    "main.js": "/My_Portfolio/static/js/main.e7747752.js",
+    "main.css": "/My_Portfolio/static/css/main.ee503e40.css",
+    "main.js": "/My_Portfolio/static/js/main.431d8929.js",
     "static/js/453.ad7768ec.chunk.js": "/My_Portfolio/static/js/453.ad7768ec.chunk.js",
     "static/media/login.png": "/My_Portfolio/static/media/login.e2f19b9bbd1f5fbb4ef3.png",
     "static/media/youtube.PNG": "/My_Portfolio/static/media/youtube.1e7cf2fa532b8a3ac9b6.PNG",
@@ -15,17 +15,16 @@
     "static/media/4.PNG": "/My_Portfolio/static/media/4.da214552fbf9adf58d77.PNG",
     "static/media/profile2.png": "/My_Portfolio/static/media/profile2.935f1ab874668e793e4e.png",
     "static/media/profile1.jpeg": "/My_Portfolio/static/media/profile1.739f2488f62c4dc8d913.jpeg",
-    "static/media/vino.jpg": "/My_Portfolio/static/media/vino.688aca996e96f19e81cc.jpg",
     "static/media/logo2.png": "/My_Portfolio/static/media/logo2.5a1ef4db309cec02ed79.png",
     "static/media/logo4.png": "/My_Portfolio/static/media/logo4.97ca7266dc1f6596a56d.png",
     "static/media/logo1.png": "/My_Portfolio/static/media/logo1.f50649604b684fe7f907.png",
     "index.html": "/My_Portfolio/index.html",
-    "main.e0bf2573.css.map": "/My_Portfolio/static/css/main.e0bf2573.css.map",
-    "main.e7747752.js.map": "/My_Portfolio/static/js/main.e7747752.js.map",
+    "main.ee503e40.css.map": "/My_Portfolio/static/css/main.ee503e40.css.map",
+    "main.431d8929.js.map": "/My_Portfolio/static/js/main.431d8929.js.map",
     "453.ad7768ec.chunk.js.map": "/My_Portfolio/static/js/453.ad7768ec.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e0bf2573.css",
-    "static/js/main.e7747752.js"
+    "static/css/main.ee503e40.css",
+    "static/js/main.431d8929.js"
   ]
 }
