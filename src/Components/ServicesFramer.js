@@ -108,7 +108,7 @@ function StatCount({ to }) {
 
 export default function ServicesFramer() {
   return (
-    <section className="services-dark py-5">
+    <section className="services-section py-5">
       <div className="container">
         {/* Heading */}
         <motion.div

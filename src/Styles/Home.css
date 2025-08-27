@@ -29,14 +29,22 @@ body {
 }
 
 .profile-img {
-  width: 100%;
+width: 100%;
   max-width: 350px;
   border-radius: 8px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+.dark-theme .profile-img {
   mix-blend-mode: lighten;
   filter: brightness(1.8) contrast(1.1);
-  object-fit: cover;
 }
 
+/* Light theme — normal image (no blending) */
+.light-theme .profile-img {
+  mix-blend-mode: normal;
+  filter: brightness(1.05) contrast(1.05);
+}
 /* =========================
    Text clip (image inside text)
    ========================= */
@@ -90,7 +98,7 @@ body {
 .corner-text {
   position: absolute;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-color);       /* <--- use theme variable */
   cursor: pointer;
   text-decoration: none;
   letter-spacing: 1px;
@@ -98,7 +106,10 @@ body {
   z-index: 2;
 }
 
-.corner-text:hover { color: #ff3b3b; transform: translateY(-1px); }
+.corner-text:hover { 
+  color: #ff3b3b; 
+  transform: translateY(-1px); 
+}
 
 .top-center {
   top: calc(var(--edge-y) + var(--safe-top));
@@ -116,14 +127,14 @@ body {
 .left-center {
   top: 50%;
   left: calc(var(--edge-x) + var(--safe-left));
-  transform: rotate(-90deg) translateY(-50%);
+  transform: rotate(-90deg) translateY(0%);
   transform-origin: left center;
 }
 
 .right-center {
   top: 50%;
   right: calc(var(--edge-x) + var(--safe-right));
-  transform: rotate(90deg) translateY(-50%);
+  transform: rotate(90deg) translateY(0%);
   transform-origin: right center;
 }
 
@@ -205,4 +216,62 @@ body {
     right: calc(10px + var(--safe-right));
     transform: none;
   }
+  .theme-toggle {
+     top : 100px;
+     right: 50px;
+  }
+}
+/* Theme toggle button */
+.theme-toggle {
+  position: absolute;
+  top: 45px;
+  right: 15px;
+  background: transparent;
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text-color);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* Default theme variables */
+:root {
+  --bg-color: #111;
+  --text-color: #fff;
+}
+
+/* Dark Theme */
+.dark-theme {
+  --bg-color: #111;
+  --text-color: #fff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Light Theme */
+.light-theme {
+  --bg-color: #f9f9f9;
+  --text-color: #111;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Apply theme to container */
+body.dark-theme, body.light-theme {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.home-container {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }

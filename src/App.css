@@ -21,3 +21,41 @@ body {
 .nav-link:hover {
   color: #fff;
 }
+/* theme.css */
+
+/* Default (root) values */
+:root {
+  --bg-color: #111;
+  --text-color: #fff;
+  --muted-text: #b9b9b9;
+  --accent-color: #ff3b3b;
+   --dif-color:rgb(230, 233, 238);
+  /* ... */
+}
+
+.light-theme {
+  --bg-color: #f9f9f9;
+  --text-color: #111;
+  --muted-text: #555;
+ 
+  /* darker gray for light mode */
+  /* ... */
+}
+
+/* Apply globally */
+body.dark-theme,
+body.light-theme {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+
+.dark-theme {
+  --bg-color: #111;
+  --text-color: #fff;
+}
+
+.light-theme {
+  --bg-color: #f9f9f9;
+  --text-color: #111;
+}

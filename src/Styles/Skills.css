@@ -1,32 +1,67 @@
 /* Dark section */
-.skills-dark { background:#0e0e0f; color:#d7d7d7; }
+.skills-dark {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
 
-.skills-title { color:#fff; font-weight:800; letter-spacing:2px; display:inline-block; position:relative; }
-.clients-title { color:#fff; font-weight:800; letter-spacing:1px; }
-.skills-sub { color:#ff3b3b; letter-spacing:3px; font-size:.85rem; text-transform:uppercase; }
+.skills-title {
+  color: var(--text-color);
+  font-weight: 800;
+  letter-spacing: 2px;
+  display: inline-block;
+  position: relative;
+}
+.clients-title {
+  color: var(--text-color);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.skills-sub {
+  color: var(--accent-color);
+  letter-spacing: 3px;
+  font-size: .85rem;
+  text-transform: uppercase;
+}
 
 /* underline accent for title */
 .underline-wipe::after{
-  content:""; position:absolute; left:0; bottom:-8px; height:3px; width:100%;
-  background:#ff3b3b; border-radius:2px;
+  content:""; position:absolute; left:0; bottom:-8px; height:3px; width:0;
+  background: var(--accent-color); border-radius:2px; transition:width 700ms ease 120ms;
 }
-
+.text-center .underline-wipe { animation: underlineAuto 1ms both; }
 /* ring center text */
-.ring-percent{
-  width:68px; height:48px; display:flex; align-items:center; justify-content:center;
-  background:rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.08); border-radius:999px;
-  color:#fff; font-weight:800; font-size:1rem; margin:auto;
+@keyframes underlineAuto { to { } }
+.ring-percent {
+  width: 68px; height: 48px;
+  display: grid; place-items: center;
+  color: var(--text-color);
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 10px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
 }
 
 /* labels */
-.skill-item { display:flex; flex-direction:column; align-items:center; gap:.5rem; }
-.skill-label { color:#cfcfcf; font-size:.95rem; }
+.skill-item {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 16px 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+}
+.skill-label {
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--text-color);
+}
 
 /* clients */
-.clients-row { margin-top:10px; }
-.client-logo{
-  max-width:130px; height:auto; opacity:.55; filter:grayscale(100%) contrast(90%);
-  transition: opacity .2s ease, filter .2s ease, transform .2s ease; background-color: transparent;
+.clients-row { margin-top: .25rem; }
+.client-logo {
+  max-height: 48px;
+  width: auto;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,.2));
 }
 .client-logo:hover{ opacity:1; filter:grayscale(0%); transform: translateY(-2px); }
 

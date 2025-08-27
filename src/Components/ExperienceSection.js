@@ -77,8 +77,8 @@ export default function ExperienceSection() {
       <div className="container">
         {/* Header */}
         <div className="text-center mb-5 reveal fade-down">
-          <h2 className="section-title mb-3 underline-wipe">EXPERIENCE</h2>
-          <div className="section-subtitle">WORK HISTORY</div>
+          <h2 className="section-title mb-10 underline-wipe">EXPERIENCE</h2>
+          <div className="section-subtitle mb-7 mt-3">WORK HISTORY</div>
         </div>
 
         {/* Experience grid */}
@@ -90,7 +90,7 @@ export default function ExperienceSection() {
                 style={{ "--stagger": `${idx * 80}ms` }}
               >
                 <div className="year-watermark reveal scale-in">{item.year}</div>
-                <div className="card bg-card text-light shadow-lg exp-card">
+                <div className="card bg-card  shadow-lg exp-card">
                   <div className="card-body">
                     <div className="small text-muted">{item.dates}</div>
                     <h5 className="card-title mb-0">{item.role}</h5>
@@ -118,7 +118,7 @@ export default function ExperienceSection() {
           </div>
 
           <div className="col-12 col-md-7 reveal fade-left">
-            <div className="text-start text-md-start text-light">
+            <div className="text-start text-md-start ">
               <h3 className="profiles-title mb-2">PROFILES</h3>
               <div className="section-subtitle mb-2">WHO AM I</div>
               <p className="mb-0 experience">

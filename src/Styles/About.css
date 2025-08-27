@@ -1,13 +1,45 @@
 /* General Section Styling */
 .about-section {
-  background-color: #111;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   padding-top: 4rem;
   padding-bottom: 4rem;
   min-height: 100vh;
   display: flex;
   align-items: center;
 }
+.about-section {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
 
+.about-section p {
+  color: var(--text-color);
+}
+.about-section h2,
+.about-section h6,
+.about-section p {
+  color: var(--text-color);
+}
+.dark-theme .about-img {
+  mix-blend-mode: lighten;
+  filter: brightness(1.8) contrast(1.1);
+}
+
+/* Light theme image */
+.light-theme .about-img {
+  mix-blend-mode: normal;
+  filter: brightness(1.05) contrast(1.05);
+}
+.light-theme .btn-outline-danger {
+  border-color: #111;
+  color: #111;
+}
+
+.dark-theme .btn-outline-danger {
+  border-color: #fff;
+  color: #fff;
+}
 /* Image Styling */
 .about-img {
   width: 100%;

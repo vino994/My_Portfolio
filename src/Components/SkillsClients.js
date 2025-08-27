@@ -59,7 +59,7 @@ function Ring({ value, color }) {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.6 }}
-        style={{ filter: "drop-shadow(0 0 6px rgba(0,0,0,.4))" }}
+        style={{ filter: "var(--ring-shadow)" }}
       />
       {/* percentage bubble */}
       <foreignObject

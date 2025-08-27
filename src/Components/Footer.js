@@ -138,10 +138,10 @@ export default function Footer() {
           </div>
           <div className="text-muted small">
             <i className="bi bi-envelope me-1"></i>
-            <a className="link-light text-decoration-none" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+            <a className=" text-decoration-none" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
             <span className="mx-2">|</span>
             <i className="bi bi-telephone me-1"></i>
-            <a className="link-light text-decoration-none" href={`tel:${CONTACT.phone}`}>{CONTACT.phone}</a>
+            <a className=" text-decoration-none" href={`tel:${CONTACT.phone}`}>{CONTACT.phone}</a>
           </div>
         </div>
       </div>

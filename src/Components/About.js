@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import profilePic from "../Assets/profile2.png";
 import "../Styles/About.css";
 
 function About() {
   const PHONE = "+919380334317";
-
+    const [theme, setTheme] = useState("dark");
+ useEffect(()=>{
+    document.body.classList.remove("dark-theme", "light-theme");
+  document.body.classList.add(`${theme}-theme`);
+ },[theme])
   return (
     <section className="about-section text-white">
       <div className="container">
@@ -26,7 +30,7 @@ function About() {
             </h2>
             <h6 className="text-danger mb-4">WHO I AM</h6>
 
-            <p className="text-white mb-4">
+            <p className=" mb-4">
               I’m a Frontend Developer with 5+ years of experience, passionate about building responsive,
               user-friendly, and modern web applications. My expertise includes React, JavaScript, HTML, CSS, and Bootstrap,
               with hands-on exposure to Node.js for backend development.

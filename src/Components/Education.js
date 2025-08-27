@@ -34,7 +34,7 @@ const Education = () => {
   ];
 
   return (
-    <section className="education-section py-5 text-white">
+    <section className="education-section py-5">
       <div className="container">
         <h2 className="fw-bold text-center mb-5">
           EDUCATION <span className="text-danger">HISTORY</span>
@@ -52,7 +52,7 @@ const Education = () => {
               <div className="timeline-content p-3">
                 <h4 className="fw-bold mb-1">{item.title}</h4>
                 <h6 className="text-danger mb-2">{item.place}</h6>
-                <p className="text-white mb-0">{item.desc}</p>
+                <p className=" mb-0">{item.desc}</p>
               </div>
               <div className="timeline-year">{item.year}</div>
             </div>
