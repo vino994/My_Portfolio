@@ -14,13 +14,13 @@ import p8 from "../Assets/notepad.PNG";
 import p9 from "../Assets/3.PNG";
 
 const ITEMS = [
-  { src: p1, span: "normal", repoUrl: "https://github.com/vino994/WebLandingpage_react" },
+  { src: p1, span: "normal", repoUrl: "https://vino994.github.io/delivery-app/" },
   { src: p2, span: "normal", repoUrl: "https://github.com/vino994/Drawing-App" },
   { src: p3, span: "normal", repoUrl: "https://github.com/vino994/Scroll-animation-loginpage" },
-  { src: p4, span: "normal", repoUrl: "https://github.com/vino994/Parallax-Website" },
+  { src: p4, span: "normal", repoUrl: "https://vino994.github.io/ashvidha/" },
   { src: p5, span: "tall",   repoUrl: "https://github.com/vino994/Youtube-clone" },
-  { src: p6, span: "normal", repoUrl: "https://github.com/vino994/Website-landingpage" },
-  { src: p7, span: "wide",   repoUrl: "https://github.com/vino994/AddtoCart" },
+  { src: p6, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/" },
+  { src: p7, span: "wide",   repoUrl: "https://vino994.github.io/zooapp/" },
   { src: p8, span: "normal", repoUrl: "https://github.com/vino994/Notepad" },
   { src: p9, span: "normal", repoUrl: "https://github.com/vino994/repo9" },
   { src: p9, span: "normal", repoUrl: "https://github.com/vino994/repo10" }
