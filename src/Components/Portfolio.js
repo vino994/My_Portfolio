@@ -3,24 +3,24 @@ import { motion } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/Portfolio.css";
 
-import p1 from "../Assets/landinGpage.PNG";
-import p2 from "../Assets/drawingapp.PNG";
-import p3 from "../Assets/login.png";
-import p4 from "../Assets/4.PNG";
+import p1 from "../Assets/project-1.PNG";
+import p2 from "../Assets/project-2.PNG";
+import p3 from "../Assets/project-3.PNG";
+import p4 from "../Assets/project-4.PNG";
 import p5 from "../Assets/youtube.PNG";
-import p6 from "../Assets/landing2.png";
-import p7 from "../Assets/addtocard.PNG";
+import p6 from "../Assets/project-5.PNG";
+import p7 from "../Assets/project-6.PNG";
 import p8 from "../Assets/notepad.PNG";
 import p9 from "../Assets/3.PNG";
 
 const ITEMS = [
   { src: p1, span: "normal", repoUrl: "https://vino994.github.io/delivery-app/" },
-  { src: p2, span: "normal", repoUrl: "https://github.com/vino994/Drawing-App" },
-  { src: p3, span: "normal", repoUrl: "https://github.com/vino994/Scroll-animation-loginpage" },
-  { src: p4, span: "normal", repoUrl: "https://vino994.github.io/ashvidha/" },
+  { src: p2, span: "normal", repoUrl: "https://vino994.github.io/ashvidha/" },
+  { src: p3, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/" },
+  { src: p4, span: "normal", repoUrl: "https://vino994.github.io/zooapp/"},
   { src: p5, span: "tall",   repoUrl: "https://github.com/vino994/Youtube-clone" },
-  { src: p6, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/" },
-  { src: p7, span: "wide",   repoUrl: "https://vino994.github.io/zooapp/" },
+  { src: p6, span: "normal", repoUrl: "https://vino994.github.io/weather_app/" },
+  { src: p7, span: "wide",   repoUrl: "https://vino994.github.io/staticsite/" },
   { src: p8, span: "normal", repoUrl: "https://github.com/vino994/Notepad" },
   { src: p9, span: "normal", repoUrl: "https://github.com/vino994/repo9" },
   { src: p9, span: "normal", repoUrl: "https://github.com/vino994/repo10" }

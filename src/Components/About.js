@@ -15,13 +15,7 @@ function About() {
       <div className="container">
         <div className="row align-items-center">
           {/* Left Image */}
-          <div className="col-lg-5 text-center mb-4 mb-lg-0">
-            <img
-              src={profilePic}
-              alt="Vinoth Sanjeevi"
-              className="img-fluid rounded shadow-lg about-img"
-            />
-          </div>
+       
 
           {/* Right Content */}
           <div className="col-lg-7">
@@ -59,6 +53,13 @@ function About() {
                 Hire Me (Call)
               </a>
             </div>
+          </div>
+             <div className="col-lg-5 text-center mb-4 mb-lg-0">
+            <img
+              src={profilePic}
+              alt="Vinoth Sanjeevi"
+              className="img-fluid rounded shadow-lg about-img"
+            />
           </div>
         </div>
       </div>
