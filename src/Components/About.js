@@ -37,8 +37,8 @@ function About() {
             {/* Buttons */}
             <div className="d-flex flex-wrap gap-3">
               <a
-                href="/Vinoth_Sanjeevi_CV.pdf"
-                download="Vinoth_Sanjeevi_CV.pdf"
+                href="/Vinoth_Resume.pdf"
+                download="Vinoth_Resume.pdf"
                 className="btn btn-danger"
                 aria-label="Download my resume as PDF"
               >
