@@ -10,7 +10,7 @@ import p4 from "../Assets/project-4.PNG";
 import p5 from "../Assets/youtube.PNG";
 import p6 from "../Assets/project-5.PNG";
 import p7 from "../Assets/project-6.PNG";
-import p8 from "../Assets/notepad.PNG";
+import p8 from "../Assets/project-7.PNG";
 import p9 from "../Assets/3.PNG";
 
 const ITEMS = [
@@ -21,7 +21,7 @@ const ITEMS = [
   { src: p5, span: "tall",   repoUrl: "https://github.com/vino994/Youtube-clone" },
   { src: p6, span: "normal", repoUrl: "https://vino994.github.io/weather_app/" },
   { src: p7, span: "wide",   repoUrl: "https://vino994.github.io/staticsite/" },
-  { src: p8, span: "normal", repoUrl: "https://github.com/vino994/Notepad" },
+  { src: p8, span: "normal", repoUrl: "https://vino994.github.io/construction/" },
   { src: p9, span: "normal", repoUrl: "https://github.com/vino994/repo9" },
   { src: p9, span: "normal", repoUrl: "https://github.com/vino994/repo10" }
 ];
