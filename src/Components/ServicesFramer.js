@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import "../Styles/ServicesFramer.css";
-import hero from "../Assets/profile1.jpeg"; // replace with your image
+import hero from "../Assets/c1.jpeg"; // replace with your image
 
 /** Inline brand icons (exact logos) **/
 function ToolIcon({ name, size = 18 }) {
