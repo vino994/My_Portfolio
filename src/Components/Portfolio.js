@@ -18,13 +18,14 @@ const ITEMS = [
   { src: p2, span: "normal", repoUrl: "https://vino994.github.io/ashvidha/" },
   { src: p3, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/" },
   { src: p4, span: "normal", repoUrl: "https://vino994.github.io/zooapp/"},
-  { src: p5, span: "tall",   repoUrl: "https://github.com/vino994/Youtube-clone" },
+  { src: p4, span: "tall",   repoUrl: "https://vino994.github.io/zooapp/" },
   { src: p6, span: "normal", repoUrl: "https://vino994.github.io/weather_app/" },
-  { src: p7, span: "wide",   repoUrl: "https://vino994.github.io/staticsite/" },
-  { src: p8, span: "normal", repoUrl: "https://vino994.github.io/construction/" },
-  { src: p9, span: "normal", repoUrl: "https://github.com/vino994/repo9" },
+  { src: p8, span: "wide",   repoUrl: "https://vino994.github.io/construction/" },
+  { src: p7, span: "normal", repoUrl: "https://vino994.github.io/staticsite/" },
+  { src: p3, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/" },
   { src: p9, span: "normal", repoUrl: "https://github.com/vino994/repo10" }
 ];
+
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
