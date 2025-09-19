@@ -17,6 +17,55 @@ body {
 
   font-style: normal;
 }
+/* Common profile pill button */
+.profile-pill {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  background: transparent;
+}
+
+/* Hover effect */
+.profile-pill:hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* Add platform-specific accents */
+.profile-pill.linkedin {
+  border-color: #0a66c2 !important;
+  color: #0a66c2;
+}
+.profile-pill.linkedin:hover {
+  background: #0a66c2;
+  color: #fff;
+}
+
+.profile-pill.github {
+  border-color: #333;
+  color: #333;
+}
+.profile-pill.github:hover {
+  background: #333;
+  color: #fff;
+}
+
+.profile-pill.instagram {
+  border-color: #e1306c;
+  color: #e1306c;
+}
+.profile-pill.instagram:hover {
+  background: #e1306c;
+  color: #fff;
+}
 
 .gradient-text {
   background: linear-gradient(90deg, #fff, #666);
@@ -39,7 +88,7 @@ body {
 :root {
   --bg-color: #111;
   --text-color: #fff;
-  --muted-text: #b9b9b9;
+  --muted-text: #581212;
   --accent-color: #ff3b3b;
    --dif-color:rgb(230, 233, 238);
   /* ... */

@@ -1,9 +1,11 @@
 /* Base */
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');body {
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+body {
   margin: 0;
   padding: 0;
   background-color: #111;
-  font-family: "Source Code Pro", monospace;
+  font-family: "Asimovian", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -11,7 +13,7 @@
   color: #fff;
 }
 h1, h2, h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Bungee", sans-serif;
 }
 /* Use dynamic viewport height to avoid extra space on mobile address bars */
 .home-container {

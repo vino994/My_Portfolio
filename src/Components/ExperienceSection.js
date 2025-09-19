@@ -18,7 +18,7 @@ const EXPERIENCE = [
     year: "2019 – 2021",
     role: "Junior Frontend Developer",
     company: "Altorcks Software, Coimbatore",
-    dates: "2 Years",
+    dates: "Coimbatore | 2 Years",
     bullets: [
       "Built responsive applications using HTML, CSS, JavaScript, jQuery, and React.",
       "Worked on 3 client projects with cross-functional teams.",
@@ -29,7 +29,7 @@ const EXPERIENCE = [
     year: "2018 – 2019",
     role: "Frontend Development Trainee",
     company: "Hogarth Worldwide, Chennai",
-    dates: "1 Year",
+    dates: "Pune | 1 Year",
     bullets: [
       "Hands-on training in HTML, CSS, JavaScript, and jQuery.",
       "Gained exposure to production-level code and development standards.",
@@ -40,7 +40,7 @@ const EXPERIENCE = [
     year: "2016 – 2018",
     role: "Content Moderator & Designer",
     company: "Teleperformance, Mohali",
-    dates: "2 Years",
+    dates: "Mohali | 2 Years",
     bullets: [
       "Reviewed and moderated digital content for global clients.",
       "Worked with design tools like Photoshop, Figma, and Illustrator.",
@@ -92,7 +92,7 @@ export default function ExperienceSection() {
                 <div className="year-watermark reveal scale-in">{item.year}</div>
                 <div className="card bg-card  shadow-lg exp-card">
                   <div className="card-body">
-                    <div className="small text-muted">{item.dates}</div>
+                    <div className="small">{item.dates}</div>
                     <h5 className="card-title mb-0">{item.role}</h5>
                     <div className="text-accent mb-3">{item.company}</div>
                     <ul className="mb-0 ps-3">
@@ -111,11 +111,12 @@ export default function ExperienceSection() {
 
         {/* Profiles (optional, you can customize or remove) */}
         <div className="row mt-6 align-items-start">
-          <div className="col-12 col-md-5 d-flex gap-4  justify-content-center mb-4 mb-md-0 profiles-icons reveal fade-right">
-            <a href="https://www.linkedin.com/in/vinothkumar-sanjeevi/" className="profile-pill">LinkedIn</a>
-            <a href="https://github.com/vino994" className="profile-pill">GitHub</a>
-            <a href="https://vino994.github.io/My_Portfolio/" className="profile-pill">Portfolio</a>
-          </div>
+        <div className="col-12 col-md-5 d-flex gap-3 justify-content-center mb-4 mb-md-0 profiles-icons reveal fade-right">
+  <a href="https://www.linkedin.com/in/vinothkumar-sanjeevi/" className="profile-pill linkedin">LinkedIn</a>
+  <a href="https://github.com/vino994" className="profile-pill github">GitHub</a>
+  <a href="https://instagram.com/yourusername" className="profile-pill instagram">Instagram</a>
+ 
+</div>
 
           <div className="col-12 col-md-7 reveal fade-left">
             <div className="text-start text-md-start ">

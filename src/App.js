@@ -20,11 +20,13 @@ export default function App() {
       <section id="education">
         <Education />
       </section>
-
+      
       <section id="experience">
         <ExperienceSection />
       </section>
-
+         <section id="portfolio">
+        <Portfolio />
+      </section>
       <section id="services">
         <ServicesFramer />
       </section>
@@ -33,9 +35,7 @@ export default function App() {
         <SkillsClients />
       </section>
 
-      <section id="portfolio">
-        <Portfolio />
-      </section>
+   
 
       <section id="contact">
         <Footer />

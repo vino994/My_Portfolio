@@ -7,7 +7,7 @@ import p1 from "../Assets/project-1.PNG";
 import p2 from "../Assets/project-2.PNG";
 import p3 from "../Assets/project-3.PNG";
 import p4 from "../Assets/project-4.PNG";
-import p5 from "../Assets/youtube.PNG";
+import p5 from "../Assets/jewel.PNG";
 import p6 from "../Assets/project-5.PNG";
 import p7 from "../Assets/project-6.PNG";
 import p8 from "../Assets/project-7.PNG";
@@ -18,7 +18,7 @@ const ITEMS = [
   { src: p2, span: "normal", repoUrl: "https://vino994.github.io/ashvidha/" },
   { src: p3, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/" },
   { src: p4, span: "normal", repoUrl: "https://vino994.github.io/zooapp/"},
-  { src: p4, span: "tall",   repoUrl: "https://vino994.github.io/zooapp/" },
+  { src: p5, span: "tall",   repoUrl: "https://vino994.github.io/Jewellery-/" },
   { src: p6, span: "normal", repoUrl: "https://vino994.github.io/weather_app/" },
   { src: p8, span: "wide",   repoUrl: "https://vino994.github.io/construction/" },
   { src: p7, span: "normal", repoUrl: "https://vino994.github.io/staticsite/" },
