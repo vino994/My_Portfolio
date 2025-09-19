@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/My_Portfolio/static/css/main.1abe947e.css",
-    "main.js": "/My_Portfolio/static/js/main.a45093b4.js",
+    "main.css": "/My_Portfolio/static/css/main.eb9c8b07.css",
+    "main.js": "/My_Portfolio/static/js/main.cae214a6.js",
     "static/js/453.ad7768ec.chunk.js": "/My_Portfolio/static/js/453.ad7768ec.chunk.js",
     "static/media/project-7.PNG": "/My_Portfolio/static/media/project-7.8d1afc90f40ab1941043.PNG",
     "static/media/project-4.PNG": "/My_Portfolio/static/media/project-4.e4769f8343ca85aa1205.PNG",
     "static/media/project-2.PNG": "/My_Portfolio/static/media/project-2.3a7bad11f6a55bf404e8.PNG",
+    "static/media/jewel.PNG": "/My_Portfolio/static/media/jewel.f13ece1a0ea8a1c9d176.PNG",
     "static/media/project-5.PNG": "/My_Portfolio/static/media/project-5.01bbc622a2b13c37de90.PNG",
-    "static/media/youtube.PNG": "/My_Portfolio/static/media/youtube.1e7cf2fa532b8a3ac9b6.PNG",
     "static/media/project-1.PNG": "/My_Portfolio/static/media/project-1.42b337ff100248946201.PNG",
     "static/media/mine.png": "/My_Portfolio/static/media/mine.5cf035c6f3e3602d03c7.png",
     "static/media/project-3.PNG": "/My_Portfolio/static/media/project-3.b9bd1077f707898cc4c1.PNG",
@@ -20,12 +20,12 @@
     "static/media/logo4.png": "/My_Portfolio/static/media/logo4.97ca7266dc1f6596a56d.png",
     "static/media/logo1.png": "/My_Portfolio/static/media/logo1.f50649604b684fe7f907.png",
     "index.html": "/My_Portfolio/index.html",
-    "main.1abe947e.css.map": "/My_Portfolio/static/css/main.1abe947e.css.map",
-    "main.a45093b4.js.map": "/My_Portfolio/static/js/main.a45093b4.js.map",
+    "main.eb9c8b07.css.map": "/My_Portfolio/static/css/main.eb9c8b07.css.map",
+    "main.cae214a6.js.map": "/My_Portfolio/static/js/main.cae214a6.js.map",
     "453.ad7768ec.chunk.js.map": "/My_Portfolio/static/js/453.ad7768ec.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1abe947e.css",
-    "static/js/main.a45093b4.js"
+    "static/css/main.eb9c8b07.css",
+    "static/js/main.cae214a6.js"
   ]
 }
