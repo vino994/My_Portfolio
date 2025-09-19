@@ -11,7 +11,7 @@ import p5 from "../Assets/jewel.PNG";
 import p6 from "../Assets/project-5.PNG";
 import p7 from "../Assets/project-6.PNG";
 import p8 from "../Assets/project-7.PNG";
-import p9 from "../Assets/3.PNG";
+import p9 from "../Assets/hotel.PNG";
 
 const ITEMS = [
   { src: p1, span: "normal", repoUrl: "https://vino994.github.io/delivery-app/" },
@@ -23,7 +23,7 @@ const ITEMS = [
   { src: p8, span: "wide",   repoUrl: "https://vino994.github.io/construction/" },
   { src: p7, span: "normal", repoUrl: "https://vino994.github.io/staticsite/" },
   { src: p3, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/" },
-  { src: p9, span: "normal", repoUrl: "https://github.com/vino994/repo10" }
+  { src: p9, span: "normal", repoUrl: "https://vino994.github.io/hotelbooking/" }
 ];
 
 
