@@ -17,20 +17,21 @@ export default function App() {
         <About />
       </section>
 
-      <section id="education">
-        <Education />
+        <section id="portfolio">
+        <Portfolio />
       </section>
       
       <section id="experience">
         <ExperienceSection />
       </section>
-         <section id="portfolio">
-        <Portfolio />
-      </section>
+    
+     
       <section id="services">
         <ServicesFramer />
       </section>
-
+    <section id="education">
+        <Education />
+      </section>
       <section id="skills">
         <SkillsClients />
       </section>
