@@ -1,21 +1,21 @@
 /* Base */
-
 @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
 body {
   margin: 0;
   padding: 0;
   background-color: #111;
   font-family: "Asimovian", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
- 
   color: #fff;
 }
+
 h1, h2, h3 {
   font-family: "Bungee", sans-serif;
 }
-/* Use dynamic viewport height to avoid extra space on mobile address bars */
+
+/* Layout */
 .home-container {
   width: 100%;
   height: 100dvh;
@@ -37,33 +37,127 @@ h1, h2, h3 {
 }
 
 .profile-img {
-width: 100%;
+  width: 100%;
   max-width: 350px;
   border-radius: 8px;
   object-fit: cover;
   transition: all 0.3s ease;
 }
+
 .dark-theme .profile-img {
   mix-blend-mode: lighten;
   filter: brightness(1.8) contrast(1.1);
 }
-
-/* Light theme — normal image (no blending) */
 .light-theme .profile-img {
   mix-blend-mode: normal;
   filter: brightness(1.05) contrast(1.05);
 }
-/* =========================
-   Text clip (image inside text)
-   ========================= */
-:root {
-  /* desktop defaults for the clip image placement */
-  --clip-size: 120% auto;
-  --clip-pos: 60% 22%;
-  --clip-light: 0.42; /* overlay strength */
+
+/* Top-right actions container */
+.top-actions {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
 }
 
-/* Heading with image background clipped to text */
+/* Theme toggle */
+.theme-toggle {
+  background: transparent;
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+.theme-toggle:hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* Resume button */
+.resume-top-btn {
+  position: absolute;
+  top: 45px;
+  right: 70px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 30px; /* pill shape */
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 1000;
+  cursor: pointer;
+  background-color: #dc3545;
+  color: #fff;
+  transition: background 0.3s ease;
+  animation: floatResume 3s ease-in-out infinite; /* ✨ floating effect */
+}
+.resume-top-btn:hover {
+  background-color: #b71c1c;
+  transform: scale(1.05);
+}
+@keyframes floatResume {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+/* Tooltip styling */
+.resume-tooltip {
+  position: absolute;
+  top: -35px; /* above button */
+  right: 50%;
+  transform: translateX(50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+/* Show tooltip on hover (desktop) */
+.resume-top-btn:hover .resume-tooltip {
+  opacity: 1;
+}
+
+/* Default: text visible, icon hidden */
+.resume-text { display: inline; }
+.resume-icon { display: none; }
+
+/* On mobile: hide text, show icon */
+@media (max-width: 576px) {
+  .resume-text { display: none; }
+  .resume-icon { display: inline; }
+  .resume-top-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    justify-content: center;
+    font-size: 0;
+    right: 15px;
+    top: 95px;
+  }
+}
+
+/* =========================
+   Text clip effect
+   ========================= */
+:root {
+  --clip-size: 120% auto;
+  --clip-pos: 60% 22%;
+  --clip-light: 0.42;
+}
+
 .text-clip {
   font-size: 6rem;
   font-weight: 800;
@@ -73,19 +167,15 @@ width: 100%;
   background-repeat: no-repeat;
   background-size: var(--clip-size);
   background-position: var(--clip-pos);
-
-  /* enable clipping */
   color: transparent;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
 }
 
-/* Fallback if background-clip:text is unsupported */
 @supports not((-webkit-background-clip: text) or (background-clip: text)) {
   .text-clip {
     color: #fff;
-    -webkit-text-fill-color: initial;
   }
 }
 
@@ -97,8 +187,6 @@ width: 100%;
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
-
-  /* shared offsets for visual balance */
   --edge-x: 20px;
   --edge-y: 20px;
 }
@@ -106,39 +194,31 @@ width: 100%;
 .corner-text {
   position: absolute;
   font-weight: 700;
-  color: var(--text-color);       /* <--- use theme variable */
+  color: var(--text-color);
   cursor: pointer;
   text-decoration: none;
   letter-spacing: 1px;
   transition: color 0.25s ease, transform 0.15s ease;
   z-index: 2;
 }
-
-.corner-text:hover { 
-  color: #ff3b3b; 
-  transform: translateY(-1px); 
-}
+.corner-text:hover { color: #ff3b3b; transform: translateY(-1px); }
 
 .top-center {
   top: calc(var(--edge-y) + var(--safe-top));
   left: 50%;
   transform: translateX(-50%);
 }
-
 .bottom-center {
-  /* RAISED from the very bottom to balance with top label */
   bottom: calc(56px + var(--safe-bottom));
   left: 50%;
   transform: translateX(-50%);
 }
-
 .left-center {
   top: 50%;
   left: calc(var(--edge-x) + var(--safe-left));
   transform: rotate(-90deg) translateY(0%);
   transform-origin: left center;
 }
-
 .right-center {
   top: 50%;
   right: calc(var(--edge-x) + var(--safe-right));
@@ -152,133 +232,82 @@ width: 100%;
 @media (max-width: 1200px) {
   .text-clip { font-size: 5rem; }
 }
-
 @media (max-width: 992px) {
   .text-clip {
     font-size: 4rem;
     text-align: center;
-    /* nudge image for tablets */
     --clip-size: 150% auto;
     --clip-pos: 55% 20%;
   }
   .profile-img { max-width: 250px; }
   .bottom-center { bottom: calc(44px + var(--safe-bottom)); }
 }
-
 @media (max-width: 576px) {
   .home-container {
-    flex-direction: column;   /* vertical stack */
+    flex-direction: column;
     height: 85dvh;
     min-height: 85dvh;
     padding: 1rem;
   }
-
   .left-section, .right-section {
     flex: none;
     width: 100%;
     padding: 0.5rem 0;
-    justify-content: center;
-    align-items: center;
   }
-
   .profile-img { max-width: 200px; height: auto; }
-
-  /* keep the clip effect ON for mobile; 
-     zoom in and shift to place the bright area under the text */
   .text-clip {
     font-size: 3rem;
     text-align: center;
-    --clip-size: 185% auto;   /* zoom further for small screens */
-    --clip-pos: 52% 18%;      /* move so bright spot sits behind text */
+    --clip-size: 185% auto;
+    --clip-pos: 52% 18%;
+  }
+  .corner-text { font-size: 12px; }
+ .top-center {
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  .corner-text {
-    font-size: 12px;
-  }
-
-  .top-center {
-    top: calc(10px + var(--safe-top));
-    left: calc(10px + var(--safe-left));
-    transform: none;
-  }
-
-  /* raise STRENGTH more on mobile (balanced square with ABOUT) */
   .bottom-center {
-    bottom: calc(28px + var(--safe-bottom));
-    right: calc(10px + var(--safe-right));
-    left: auto;
-    transform: none;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .left-center {
-    top: auto;                                   /* unset the base top:50% */
-    bottom: calc(28px + var(--safe-bottom));     /* sit above the safe area */
-    left: calc(10px + var(--safe-left));         /* use LEFT safe inset */
-    right: auto;                                 /* ensure no right anchoring */
-    transform: none;                             /* remove the -90deg rotation */
-    transform-origin: initial;                   /* optional: reset origin */
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%) rotate(-90deg);
   }
 
   .right-center {
-    top: calc(10px + var(--safe-top));
-    right: calc(10px + var(--safe-right));
-    transform: none;
-  }
-  .theme-toggle {
-     top : 100px;
-     right: 50px;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%) rotate(90deg);
   }
 }
-/* Theme toggle button */
-.theme-toggle {
-  position: absolute;
-  top: 45px;
-  right: 15px;
-  background: transparent;
-  border: 2px solid var(--text-color);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 18px;
-  cursor: pointer;
-  color: var(--text-color);
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
 
-.theme-toggle:hover {
-  background: var(--text-color);
-  color: var(--bg-color);
-}
-
-/* Default theme variables */
+/* Theme colors */
 :root {
   --bg-color: #111;
   --text-color: #fff;
 }
-
-/* Dark Theme */
 .dark-theme {
   --bg-color: #111;
   --text-color: #fff;
   background-color: var(--bg-color);
   color: var(--text-color);
 }
-
-/* Light Theme */
 .light-theme {
   --bg-color: #f9f9f9;
   --text-color: #111;
   background-color: var(--bg-color);
   color: var(--text-color);
 }
-
-/* Apply theme to container */
 body.dark-theme, body.light-theme {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
-
 .home-container {
   background-color: var(--bg-color);
   color: var(--text-color);
