@@ -73,7 +73,11 @@ export default function Portfolio() {
                 whileInView="show"
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.01 }}
-                onClick={() => window.open(it.repoUrl, "_blank")}
+             // Option A: open in same tab (simple)
+// Option B: directly navigate (equivalent)
+onClick={() => (window.location.href = it.repoUrl)}
+
+
               >
                 <img src={it.src} alt={`work-${i}`} loading="lazy" />
                 <div className="overlay"><span>View</span></div>
