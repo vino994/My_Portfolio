@@ -1,77 +1,177 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import profilePic from "../Assets/person2.jpeg";
 import "../Styles/About.css";
 
-// ✅ Tech icons
-import { FaReact, FaJs, FaHtml5, FaCss3Alt, FaBootstrap, FaNodeJs } from "react-icons/fa";
+// ✅ Icons
+import {
+  FaReact,
+  FaJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaBootstrap,
+  FaNodeJs,
+  FaGithub,
+  FaLinkedin,
+} from "react-icons/fa";
 
 function About() {
   const PHONE = "+919380334317";
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Intersection Observer for animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="about-section">
+    <section
+      className={`about-section ${isVisible ? "animate" : ""}`}
+      ref={sectionRef}
+    >
       <div className="container">
-        <div className="row align-items-center">
-          
-          {/* Profile Image */}
-          <div className="col-lg-5 text-center mb-4 mb-lg-0">
-            <img
-              src={profilePic}
-              alt="Vinoth Sanjeevi"
-              className="img-fluid rounded shadow-lg about-img"
-            />
+        <div className="row align-items-stretch">
+          {/* Left: Image + Projects */}
+          <div className="col-lg-5 d-flex flex-column justify-content-between">
+            <div className="about-img-wrapper">
+              <img
+                src={profilePic}
+                alt="Vinoth Sanjeevi"
+                className="about-img shadow-lg"
+              />
+            </div>
+
+            {/* Top Projects (card style) */}
+            <div className="projects-box mt-4 shadow-sm">
+              <h6 className="about-sub">Top Projects</h6>
+              <ul className="projects-list">
+                <li>
+                  🛒{" "}
+                  <a
+                    href="https://vino994.github.io/delivery-app/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Delivery App
+                  </a>{" "}
+                  – React + Bootstrap + Cart Flow
+                </li>
+                <li>
+                  🌦{" "}
+                  <a
+                    href="https://vino994.github.io/weather_app/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Weather App
+                  </a>{" "}
+                  – OpenWeather API + React Hooks
+                </li>
+                <li>
+                  🏨{" "}
+                  <a
+                    href="https://vino994.github.io/hotelbooking/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Hotel Booking
+                  </a>{" "}
+                  – UI Demo with React
+                </li>
+              </ul>
+            </div>
           </div>
 
-          {/* Content */}
-          <div className="col-lg-7 text-start">
-            <h2 className="about-title">
+          {/* Right: About Content + Actions */}
+          <div className="col-lg-7 text-start d-flex flex-column justify-content-center">
+            <h2 className="about-title mb-3">
               ABOUT <span className="highlight">ME</span>
             </h2>
             <h6 className="about-sub">FRONTEND DEVELOPER</h6>
 
             <p className="about-text">
               I am a <strong>Frontend Developer</strong> specializing in{" "}
-              <strong>React.js, JavaScript, and UI/UX design</strong>.  
-              I build fast, responsive, and user-friendly web applications that deliver real business value.
+              <strong>React.js, JavaScript, and modern UI/UX design</strong>. I
+              enjoy building fast, responsive, and user-friendly web
+              applications that create real impact.
             </p>
 
             {/* Highlights */}
             <ul className="highlights mb-4">
-              <li><FaReact className="icon react" /> 5+ years of Frontend Development experience</li>
-              <li><FaJs className="icon js" /> Proficient in React.js, JavaScript, HTML, CSS, Bootstrap</li>
-              <li><FaNodeJs className="icon node" /> Hands-on Node.js for backend integration</li>
-              <li><FaBootstrap className="icon bootstrap" /> Skilled in UI/UX tools: Figma, Photoshop, Canva</li>
-              <li><FaHtml5 className="icon html" /> Delivered 10+ live projects (e-commerce, social apps, portfolios)</li>
-              <li><FaCss3Alt className="icon css" /> Strong problem-solving, quick learner, and collaborative team player</li>
+              <li>
+                <FaReact className="icon react" /> 5+ years of experience in
+                Frontend Development
+              </li>
+              <li>
+                <FaJs className="icon js" /> Proficient in React.js, JavaScript,
+                HTML, CSS, Bootstrap
+              </li>
+              <li>
+                <FaNodeJs className="icon node" /> Hands-on exposure to Node.js
+                for backend integration
+              </li>
+              <li>
+                <FaBootstrap className="icon bootstrap" /> Skilled in UI/UX
+                tools: Figma, Photoshop, Canva
+              </li>
+              <li>
+                <FaHtml5 className="icon html" /> Built 10+ live projects
+                (e-commerce, social apps, portfolios)
+              </li>
+              <li>
+                <FaCss3Alt className="icon css" /> Strong problem-solving, quick
+                learner, team player
+              </li>
             </ul>
 
-            {/* Top Projects */}
-            <h6 className="about-sub mb-3">TOP PROJECTS</h6>
-            <ul className="projects-list mb-4">
-              <li>
-                🛒 <a href="https://vino994.github.io/delivery-app/" target="_blank" rel="noreferrer">Delivery App</a> — React + Bootstrap + Cart Flow
-              </li>
-              <li>
-                🌦 <a href="https://vino994.github.io/weather_app/" target="_blank" rel="noreferrer">Weather App</a> — React Hooks + OpenWeather API
-              </li>
-              <li>
-                🏨 <a href="https://vino994.github.io/hotelbooking/" target="_blank" rel="noreferrer">Hotel Booking</a> — Responsive UI with React
-              </li>
-            </ul>
+            {/* Actions */}
+            <div className="d-flex flex-wrap justify-content-between align-items-center gap-3">
+              <div className="d-flex gap-3">
+                <a
+                  href="/Vinoth_Sanjeevi_Resume.pdf"
+                  download="Vinoth_Sanjeevi_Resume.pdf"
+                  className="btn btn-danger"
+                >
+                  📄 Download Resume
+                </a>
+                <a href={`tel:${PHONE}`} className="btn btn-outline-light">
+                  📞 Hire Me
+                </a>
+              </div>
 
-            {/* Call to Action */}
-            <div className="d-flex flex-wrap gap-3">
-              <a
-                href="/Vinoth_Sanjeevi_Resume.pdf"
-                download="Vinoth_Sanjeevi_Resume.pdf"
-                className="btn btn-danger"
-              >
-                📄 Download Resume
-              </a>
-              <a href={`tel:${PHONE}`} className="btn btn-outline-light">
-                📞 Hire Me
-              </a>
+              {/* Social Links on right */}
+              <div className="social-links d-flex gap-2">
+                <a
+                  href="https://linkedin.com/in/vinoth-sanjeevi"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn linkedin"
+                >
+                  <FaLinkedin /> LinkedIn
+                </a>
+                <a
+                  href="https://github.com/vino994"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn github"
+                >
+                  <FaGithub /> GitHub
+                </a>
+              </div>
             </div>
           </div>
         </div>

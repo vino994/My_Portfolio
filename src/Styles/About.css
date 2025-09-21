@@ -6,6 +6,132 @@
   color: var(--text-color);
   padding: 4rem 0;
   font-family: "Poppins", sans-serif;
+
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1.2s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.about-section.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Row fix for equal height */
+.about-section .row {
+  align-items: stretch;
+}
+/* Image Wrapper with Parallax */
+.about-img-wrapper {
+  overflow: hidden;
+  border-radius: 12px;
+  flex-grow: 1;
+}
+.about-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 6s ease; /* smooth zoom effect */
+}
+.about-img-wrapper:hover .about-img {
+  transform: scale(1.08); /* slow zoom-in */
+}
+
+/* Projects box below image */
+.projects-box {
+  margin-top: 1rem;
+}
+.projects-list {
+  list-style: none;
+  padding: 0;
+}
+.projects-list li {
+  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+}
+.projects-list a {
+  color: #ff3b3b;
+  font-weight: 600;
+  text-decoration: none;
+}
+.projects-list a:hover {
+  text-decoration: underline;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+}
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.social-btn.linkedin { background: #0a66c2; color: #fff; }
+.social-btn.linkedin:hover { background: #004182; }
+.social-btn.github { background: #24292e; color: #fff; }
+.social-btn.github:hover { background: #000; }
+
+/* Responsive Fix */
+@media (max-width: 992px) {
+  .projects-box { margin-top: 1.5rem; }
+}
+@media (max-width: 576px) {
+  .about-section {
+    text-align: left;
+    padding: 2.5rem 1rem;
+  }
+  .about-img {
+    height: 220px;
+  }
+  .projects-box {
+    margin-top: 1rem;
+  }
+  .d-flex.flex-wrap.justify-content-between {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .social-links {
+    justify-content: flex-start;
+  }
+}
+
+/* Profile Image */
+.about-img {
+  width: 100%;
+  height: 100%;       /* full column height */
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: fadeInLeft 1.2s ease forwards;
+  animation-delay: 0.2s;
+}
+.about-img:hover {
+  transform: scale(1.03);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 /* Headings */
@@ -21,25 +147,12 @@
   font-weight: 600;
   margin-bottom: 1rem;
 }
-.highlight {
-  color: #ff3b3b;
-}
+.highlight { color: #ff3b3b; }
+
 .about-text {
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 1.2rem;
-}
-
-/* Profile Image */
-.about-img {
-  width: 100%;
-  max-width: 350px;
-  border-radius: 12px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-.about-img:hover {
-  transform: scale(1.03);
 }
 
 /* Highlights & Projects */
@@ -58,10 +171,7 @@
 }
 
 /* Icons */
-.icon {
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
+.icon { font-size: 1.2rem; flex-shrink: 0; }
 .icon.react { color: #61dafb; }
 .icon.js { color: #f7df1e; }
 .icon.node { color: #3c873a; }
@@ -75,23 +185,38 @@
   font-weight: 600;
   text-decoration: none;
 }
-.projects-list a:hover {
-  text-decoration: underline;
-}
+.projects-list a:hover { text-decoration: underline; }
 
 /* Buttons */
 .btn {
   font-weight: 600;
   transition: transform 0.2s ease, background 0.3s ease;
 }
-.btn:hover {
-  transform: translateY(-2px);
+.btn:hover { transform: translateY(-2px); }
+
+/* Social Buttons */
+.social-links { margin-top: 1rem; }
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
+.social-btn.linkedin { background: #0a66c2; color: #fff; }
+.social-btn.linkedin:hover { background: #004182; }
+.social-btn.github { background: #24292e; color: #fff; }
+.social-btn.github:hover { background: #000; }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .about-img {
-    max-width: 250px;
+    height: auto;
+    max-height: 400px;
     margin-bottom: 1rem;
   }
   .about-title { font-size: 1.6rem; }
@@ -99,16 +224,18 @@
 }
 @media (max-width: 576px) {
   .about-section {
-    text-align: left;   /* recruiter-friendly: left aligned on mobile */
+    text-align: left;
     padding: 2.5rem 1rem;
   }
   .about-img {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
     margin-bottom: 1.5rem;
   }
-  .highlights li, .projects-list li {
-    font-size: 0.9rem;
+  .highlights li, .projects-list li { font-size: 0.9rem; }
+  .social-links {
+    flex-direction: column;
+    gap: 0.6rem;
   }
 }

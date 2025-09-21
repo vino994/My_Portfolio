@@ -1,118 +1,93 @@
-/* Theme */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
+
 .portfolio-dark {
   background: var(--bg-color);
   color: var(--text-color);
+  font-family: "Inter", sans-serif;
 }
+
+/* Titles */
 .portfolio-title {
-  color: var(--text-color);
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 1.5px;
 }
 .portfolio-sub {
   color: var(--accent-color);
-  letter-spacing: 3px;
-  font-size: .85rem;
   text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
 }
 
-/* Centered frame that hugs the grid width */
-.portfolio-frame {
-  margin: 0 auto;
-  padding: 8px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 18px;
-  box-shadow: 0 12px 28px rgba(0,0,0,.18);
-}
-
-/* ===== 3-column curated masonry (clean like your ref) ===== */
-.mosaic {
-  display: grid;
+/* Filters (wrapped, no scroll) */
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  grid-template-columns: repeat(6, 1fr);
 }
-
-/* Tile base (no fixed aspect ratio—image fills, cropped by object-fit) */
-.tile {
-  position: relative;
-  overflow: hidden;
-  border-radius: 14px;
-  background: var(--bg-color);
-  border: 1px solid var(--card-border);
-  cursor: pointer;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.tile:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.22); }
-/* Spans: tweak these to change the look */
-.tile.normal { grid-row: span 1; }
-.tile.tall   { grid-row: span 2; }
-.tile.wide   { grid-column: span 2; grid-row: span 1; }
-/* (Optional) big feature card:
-.tile.big    { grid-column: span 2; grid-row: span 2; } */
-
-.tile img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
-  filter: saturate(105%) contrast(103%);
-}
-.tile:hover img{ transform: scale(1.06); }
-
-/* Overlay */
-.overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 40%, rgba(0,0,0,.55));
-  display: grid; place-items: end center;
-  padding: 10px;
-  opacity: 0; transition: opacity .2s ease;
-}
-.tile:hover .overlay{ opacity:1; }
-.overlay span {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--accent-color);
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-.repo-list h4 { color: var(--text-color); }
-.repo-list .btn {
-  border-color: var(--card-border);
+.filter-btn {
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
   color: var(--text-color);
-  background: var(--card-bg);
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.repo-list .btn:hover {
+.filter-btn:hover { transform: translateY(-2px); }
+.filter-btn.active {
   background: var(--accent-color);
   color: #fff;
-  border-color: transparent;
+  border: none;
 }
-/* Responsive columns */
-@media (max-width: 768px){
-  .mosaic{ grid-template-columns: repeat(2,1fr); grid-auto-rows: 120px; }
-  .tile.wide{ grid-column: span 2; }
+
+/* Cards */
+.portfolio-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-@media (max-width: 480px){
-  .mosaic{ grid-template-columns: 1fr; grid-auto-rows: 160px; }
-  .tile.wide{ grid-column: span 1; }
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
 }
-.repo-list {
-  max-width: 600px;
-  margin: 0 auto;
+.portfolio-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.portfolio-body {
+  padding: 1rem;
   text-align: left;
 }
-.repo-list button {
-  white-space: nowrap;
-  padding: 0.5rem 1rem;
+.portfolio-name {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
-/* IMPORTANT: Remove any old rules forcing squares, e.g.:
-   .tile { aspect-ratio:1/1 } or .portfolio-item img { height:300px } */
-@media (max-width: 991.98px) {
-  .mosaic { grid-template-columns: repeat(4, 1fr); }
-  .tile.normal { grid-column: span 2; grid-row: span 2; }
-  .tile.tall   { grid-column: span 2; grid-row: span 3; }
-  .tile.wide   { grid-column: span 4; grid-row: span 2; }
+/* Tags */
+.portfolio-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
-@media (max-width: 575.98px) {
-  .mosaic { grid-template-columns: repeat(2, 1fr); }
-  .tile, .tile.normal, .tile.tall, .tile.wide { grid-column: span 2; grid-row: span 2; }
+.tag-badge {
+  background: rgba(255,59,59,0.15);
+  color: var(--accent-color);
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .portfolio-img { height: 160px; }
+  .portfolio-name { font-size: 1rem; }
 }

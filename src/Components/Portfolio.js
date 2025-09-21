@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/Portfolio.css";
 
@@ -14,116 +13,113 @@ import p7 from "../Assets/project-6.PNG";
 import p8 from "../Assets/project-7.PNG";
 import p9 from "../Assets/hotel.PNG";
 
-/*
-  ITEMS now includes id and desc.
-  desc is shown inside the overlay (so styles remain unchanged).
-*/
+// Portfolio items
 const ITEMS = [
-  { id: 1, src: p1, span: "normal", repoUrl: "https://vino994.github.io/delivery-app/", desc: "Delivery App — React, Bootstrap, cart flow" },
-  { id: 2, src: p2, span: "normal", repoUrl: "https://vino994.github.io/ashvidha/", desc: "Business Landing — React site" },
-  { id: 3, src: p3, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/", desc: "Social App — auth + posts demo" },
-  { id: 4, src: p4, span: "normal", repoUrl: "https://vino994.github.io/zooapp/", desc: "Zoo Info — gallery & pages" },
-  { id: 5, src: p5, span: "tall",   repoUrl: "https://vino994.github.io/Jewellery-/", desc: "Jewellery Showcase — responsive" },
-  { id: 6, src: p6, span: "normal", repoUrl: "https://vino994.github.io/weather_app/", desc: "Weather App — OpenWeather API" },
-  { id: 7, src: p8, span: "wide",   repoUrl: "https://vino994.github.io/construction/", desc: "Construction — business site" },
-  { id: 8, src: p7, span: "normal", repoUrl: "https://vino994.github.io/staticsite/", desc: "Static Site — HTML/CSS/React" },
-  { id: 9, src: p3, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/", desc: "Social App (alt)" },
-  { id: 10, src: p9, span: "normal", repoUrl: "https://vino994.github.io/hotelbooking/", desc: "Hotel Booking — UI demo" }
+  { id: 1, src: p1, title: "Delivery App", tags: ["React", "Bootstrap"], liveUrl: "https://vino994.github.io/delivery-app/", codeUrl: "https://github.com/vino994/delivery-app" },
+  { id: 2, src: p2, title: "Business Landing", tags: ["React", "UI/UX"], liveUrl: "https://vino994.github.io/ashvidha/", codeUrl: "https://github.com/vino994/ashvidha" },
+  { id: 3, src: p3, title: "Social App", tags: ["React", "API"], liveUrl: "https://vino994.github.io/dhiya-social-app/", codeUrl: "https://github.com/vino994/dhiya-social-app" },
+  { id: 4, src: p4, title: "Zoo Info", tags: ["React"], liveUrl: "https://vino994.github.io/zooapp/", codeUrl: "https://github.com/vino994/zooapp" },
+  { id: 5, src: p5, title: "Jewellery Showcase", tags: ["Responsive", "UI/UX"], liveUrl: "https://vino994.github.io/Jewellery-/", codeUrl: "https://github.com/vino994/Jewellery-" },
+  { id: 6, src: p6, title: "Weather App", tags: ["React", "API"], liveUrl: "https://vino994.github.io/weather_app/", codeUrl: "https://github.com/vino994/weather_app" },
+  { id: 7, src: p8, title: "Construction", tags: ["React"], liveUrl: "https://vino994.github.io/construction/", codeUrl: "https://github.com/vino994/construction" },
+  { id: 8, src: p7, title: "Static Site", tags: ["HTML", "Responsive"], liveUrl: "https://vino994.github.io/staticsite/", codeUrl: "https://github.com/vino994/staticsite" },
+  { id: 9, src: p9, title: "Hotel Booking", tags: ["React", "UI/UX"], liveUrl: "https://vino994.github.io/hotelbooking/", codeUrl: "https://github.com/vino994/hotelbooking" }
 ];
 
+// animation
 const fadeUp = {
-  hidden: { opacity: 0, y: 16 },
-  show:   { opacity: 1, y: 0, transition: { duration: 0.55 } }
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.4 } },
+  exit: { opacity: 0, y: 20, scale: 0.95, transition: { duration: 0.3 } }
 };
 
 export default function Portfolio() {
-  const [repos, setRepos] = useState([]);
+  const [filter, setFilter] = useState("All");
   const [showAll, setShowAll] = useState(false);
-  const navigate = useNavigate();
 
-  const fetchRepos = async () => {
-    try {
-      const res = await fetch("https://api.github.com/users/vino994/repos");
-      const data = await res.json();
-      setRepos(data);
-    } catch (err) {
-      console.error("Failed to fetch repos:", err);
-    }
-  };
+  const categories = ["All", "React", "API", "UI/UX", "Responsive"];
+
+  const filtered = filter === "All" ? ITEMS : ITEMS.filter(it => it.tags.includes(filter));
+  const visible = showAll ? filtered : filtered.slice(0, 6);
 
   return (
     <section className="portfolio-dark py-5" id="portfolio">
       <div className="container text-center">
+        {/* Section Title */}
         <motion.div
           className="mb-4"
-          variants={fadeUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
+          variants={fadeUp}
         >
           <h2 className="portfolio-title">PORTFOLIO</h2>
           <div className="portfolio-sub">MY WORK</div>
         </motion.div>
 
-        {/* Gallery Grid */}
-        <div className="portfolio-frame">
-          <div className="mosaic">
-            {ITEMS.map((it) => (
+        {/* Filters */}
+        <div className="filter-buttons mb-4 flex-wrap justify-content-center">
+          {categories.map(cat => (
+            <button
+              key={cat}
+              className={`filter-btn ${filter === cat ? "active" : ""}`}
+              onClick={() => { setFilter(cat); setShowAll(false); }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Project Grid */}
+        <div className="row g-4">
+          <AnimatePresence>
+            {visible.map(item => (
               <motion.div
-                key={it.id}
-                className={`tile ${it.span}`}
+                key={item.id}
+                className="col-12 col-sm-6 col-lg-4"
                 variants={fadeUp}
                 initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.01 }}
-                onClick={() => navigate(`/project/${it.id}`)}
+                animate="show"
+                exit="exit"
+                layout
               >
-                <img src={it.src} alt={`work-${it.id}`} loading="lazy" />
-                {/* overlay now shows the short description */}
-                <div className="overlay"><span>{it.desc}</span></div>
+                <article className="portfolio-card h-100">
+                  <img src={item.src} alt={item.title} className="portfolio-img" />
+                  <div className="portfolio-body">
+                    <h5 className="portfolio-name">{item.title}</h5>
+                    <div className="portfolio-tags mb-2">
+                      {item.tags.map((t, i) => (
+                        <span key={i} className="tag-badge">{t}</span>
+                      ))}
+                    </div>
+                    <div className="d-flex gap-2">
+                      <a href={item.liveUrl} target="_blank" rel="noreferrer" className="btn btn-sm btn-danger">🔗 Live</a>
+                      <a href={item.codeUrl} target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-light">💻 Code</a>
+                    </div>
+                  </div>
+                </article>
               </motion.div>
             ))}
-          </div>
+          </AnimatePresence>
         </div>
 
-        {/* Load More Button */}
-        <motion.div
-          className="mt-4"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          <button
-            className="btn btn-danger px-4"
-            onClick={() => {
-              fetchRepos();
-              setShowAll(true);
-            }}
+        {/* Load More / Show Less */}
+        {filtered.length > 6 && (
+          <motion.div
+            className="mt-4"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
           >
-            Load More
-          </button>
-        </motion.div>
+            {!showAll ? (
+              <button className="btn btn-outline-light px-4" onClick={() => setShowAll(true)}>Load More</button>
+            ) : (
+              <button className="btn btn-outline-light px-4" onClick={() => { setShowAll(false); window.scrollTo({ top: document.getElementById("portfolio").offsetTop - 60, behavior: "smooth" }); }}>Show Less</button>
+            )}
+          </motion.div>
+        )}
       </div>
-
-      {/* Extra GitHub Repos as buttons */}
-      {showAll && (
-        <div className="repo-list mt-5 text-center">
-          <h4 className="mb-3">All GitHub Repositories</h4>
-          <div className="d-flex flex-wrap justify-content-center gap-2">
-            {repos.map((repo) => (
-              <button
-                key={repo.id}
-                className="btn btn-outline-primary"
-                onClick={() => window.open(repo.html_url, "_blank")}
-              >
-                {repo.name}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
     </section>
   );
 }
