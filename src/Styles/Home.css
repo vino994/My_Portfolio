@@ -82,36 +82,33 @@ h1, h2, h3 {
 
 /* Resume button */
 .resume-top-btn {
-  position: absolute;
-  top: 45px;
-  right: 70px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   font-size: 14px;
   padding: 6px 12px;
-  border-radius: 30px; /* pill shape */
+  border-radius: 6px;
   font-weight: 600;
   text-decoration: none;
   z-index: 1000;
-  cursor: pointer;
-  background-color: #dc3545;
+  background: #dc3545; /* ensure red background */
   color: #fff;
-  transition: background 0.3s ease;
-  animation: floatResume 3s ease-in-out infinite; /* ✨ floating effect */
+  transition: transform 0.3s ease, background 0.3s ease;
 }
+
 .resume-top-btn:hover {
-  background-color: #b71c1c;
-  transform: scale(1.05);
+  background-color: #c82333;
+  transform: scale(1.05); /* small hover zoom */
 }
 @keyframes floatResume {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+  50% { transform: translateY(-30px); }
 }
 /* Tooltip styling */
 .resume-tooltip {
   position: absolute;
-  top: -35px; /* above button */
+  top: 40px; /* above button */
   right: 50%;
   transform: translateX(50%);
   background: rgba(0, 0, 0, 0.85);
@@ -137,15 +134,20 @@ h1, h2, h3 {
 /* On mobile: hide text, show icon */
 @media (max-width: 576px) {
   .resume-text { display: none; }
-  .resume-icon { display: inline; }
+  .resume-icon { display: block; }
   .resume-top-btn {
-    width: 48px;
-    height: 48px;
+    padding: 0;
     border-radius: 50%;
-    justify-content: center;
-    font-size: 0;
-    right: 15px;
-    top: 95px;
+    width: 6px;
+    height: 40px;
+    right:0px;
+    top: 50px;
+    position: absolute;
+    font-size: 0; /* removes leftover space */
+  }
+  .resume-top-btn svg {
+    width: 24px;
+    height: 24px;
   }
 }
 
