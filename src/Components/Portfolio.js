@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/Portfolio.css";
 
@@ -13,19 +14,22 @@ import p7 from "../Assets/project-6.PNG";
 import p8 from "../Assets/project-7.PNG";
 import p9 from "../Assets/hotel.PNG";
 
+/*
+  ITEMS now includes id and desc.
+  desc is shown inside the overlay (so styles remain unchanged).
+*/
 const ITEMS = [
-  { src: p1, span: "normal", repoUrl: "https://vino994.github.io/delivery-app/" },
-  { src: p2, span: "normal", repoUrl: "https://vino994.github.io/ashvidha/" },
-  { src: p3, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/" },
-  { src: p4, span: "normal", repoUrl: "https://vino994.github.io/zooapp/"},
-  { src: p5, span: "tall",   repoUrl: "https://vino994.github.io/Jewellery-/" },
-  { src: p6, span: "normal", repoUrl: "https://vino994.github.io/weather_app/" },
-  { src: p8, span: "wide",   repoUrl: "https://vino994.github.io/construction/" },
-  { src: p7, span: "normal", repoUrl: "https://vino994.github.io/staticsite/" },
-  { src: p3, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/" },
-  { src: p9, span: "normal", repoUrl: "https://vino994.github.io/hotelbooking/" }
+  { id: 1, src: p1, span: "normal", repoUrl: "https://vino994.github.io/delivery-app/", desc: "Delivery App — React, Bootstrap, cart flow" },
+  { id: 2, src: p2, span: "normal", repoUrl: "https://vino994.github.io/ashvidha/", desc: "Business Landing — React site" },
+  { id: 3, src: p3, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/", desc: "Social App — auth + posts demo" },
+  { id: 4, src: p4, span: "normal", repoUrl: "https://vino994.github.io/zooapp/", desc: "Zoo Info — gallery & pages" },
+  { id: 5, src: p5, span: "tall",   repoUrl: "https://vino994.github.io/Jewellery-/", desc: "Jewellery Showcase — responsive" },
+  { id: 6, src: p6, span: "normal", repoUrl: "https://vino994.github.io/weather_app/", desc: "Weather App — OpenWeather API" },
+  { id: 7, src: p8, span: "wide",   repoUrl: "https://vino994.github.io/construction/", desc: "Construction — business site" },
+  { id: 8, src: p7, span: "normal", repoUrl: "https://vino994.github.io/staticsite/", desc: "Static Site — HTML/CSS/React" },
+  { id: 9, src: p3, span: "normal", repoUrl: "https://vino994.github.io/dhiya-social-app/", desc: "Social App (alt)" },
+  { id: 10, src: p9, span: "normal", repoUrl: "https://vino994.github.io/hotelbooking/", desc: "Hotel Booking — UI demo" }
 ];
-
 
 const fadeUp = {
   hidden: { opacity: 0, y: 16 },
@@ -33,9 +37,9 @@ const fadeUp = {
 };
 
 export default function Portfolio() {
-  // ✅ Hooks must go inside the component
   const [repos, setRepos] = useState([]);
   const [showAll, setShowAll] = useState(false);
+  const navigate = useNavigate();
 
   const fetchRepos = async () => {
     try {
@@ -48,7 +52,7 @@ export default function Portfolio() {
   };
 
   return (
-    <section className="portfolio-dark py-5">
+    <section className="portfolio-dark py-5" id="portfolio">
       <div className="container text-center">
         <motion.div
           className="mb-4"
@@ -64,23 +68,20 @@ export default function Portfolio() {
         {/* Gallery Grid */}
         <div className="portfolio-frame">
           <div className="mosaic">
-            {ITEMS.map((it, i) => (
+            {ITEMS.map((it) => (
               <motion.div
-                key={i}
+                key={it.id}
                 className={`tile ${it.span}`}
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.01 }}
-             // Option A: open in same tab (simple)
-// Option B: directly navigate (equivalent)
-onClick={() => (window.location.href = it.repoUrl)}
-
-
+                onClick={() => navigate(`/project/${it.id}`)}
               >
-                <img src={it.src} alt={`work-${i}`} loading="lazy" />
-                <div className="overlay"><span>View</span></div>
+                <img src={it.src} alt={`work-${it.id}`} loading="lazy" />
+                {/* overlay now shows the short description */}
+                <div className="overlay"><span>{it.desc}</span></div>
               </motion.div>
             ))}
           </div>
@@ -106,25 +107,23 @@ onClick={() => (window.location.href = it.repoUrl)}
         </motion.div>
       </div>
 
-      {/* Extra GitHub Repos */}
-    {/* Extra GitHub Repos as buttons */}
-{showAll && (
-  <div className="repo-list mt-5 text-center">
-    <h4 className="mb-3">All GitHub Repositories</h4>
-    <div className="d-flex flex-wrap justify-content-center gap-2">
-      {repos.map((repo) => (
-        <button
-          key={repo.id}
-          className="btn btn-outline-primary"
-          onClick={() => window.open(repo.html_url, "_blank")}
-        >
-          {repo.name}
-        </button>
-      ))}
-    </div>
-  </div>
-)}
-
+      {/* Extra GitHub Repos as buttons */}
+      {showAll && (
+        <div className="repo-list mt-5 text-center">
+          <h4 className="mb-3">All GitHub Repositories</h4>
+          <div className="d-flex flex-wrap justify-content-center gap-2">
+            {repos.map((repo) => (
+              <button
+                key={repo.id}
+                className="btn btn-outline-primary"
+                onClick={() => window.open(repo.html_url, "_blank")}
+              >
+                {repo.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

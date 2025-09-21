@@ -1,13 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Poppins:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+/* Import once globally */
+@import url('https://fonts.googleapis.com/css2?family=Asimovian&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+/* Apply to all elements */
 body {
   margin: 0;
   padding: 0;
-  font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
-  font-style: normal;
+  font-family: "Asimovian", sans-serif;
   background-color: var(--bg-color, #111);
   color: var(--text-color, #fff);
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Bungee", sans-serif;
+}
+
 
 *, *::before, *::after {
   font-family: inherit;
