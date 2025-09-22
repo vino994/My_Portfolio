@@ -84,15 +84,29 @@ function About() {
             {/* Actions */}
             <div className="d-flex flex-wrap justify-content-between align-items-center gap-3">
               <div className="d-flex gap-3">
-                <a href="/Vinoth_Sanjeevi_Resume.pdf" download="Vinoth_Sanjeevi_Resume.pdf" className="btn btn-danger">📄 Download Resume</a>
-                <a href={`tel:${PHONE}`} className="btn btn-outline-light">📞 Hire Me</a>
+                <a
+                  href={`${process.env.PUBLIC_URL}/Vinoth_Sanjeevi_CV.pdf`}
+                  download="Vinoth_Sanjeevi_CV.pdf"
+                  className="btn btn-danger"
+                >
+                  📄 Download Resume
+                </a>
+                <a
+                  href={`${process.env.PUBLIC_URL}/Vinoth_Sanjeevi_CV.pdf`}
+                  target="_self"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline-light"
+                >
+                  👀 View Resume
+                </a>
+                <a href={`tel:${PHONE}`} className="btn btn-success">📞 Hire Me</a>
               </div>
 
               <div className="social-links d-flex gap-2">
-                <a href="https://linkedin.com/in/vinoth-sanjeevi" target="_blank" rel="noreferrer" className="social-btn linkedin">
+                <a href="https://www.linkedin.com/in/vinothkumar-sanjeevi/" target="_self" rel="noreferrer" className="social-btn linkedin">
                   <FaLinkedin /> LinkedIn
                 </a>
-                <a href="https://github.com/vino994" target="_blank" rel="noreferrer" className="social-btn github">
+                <a href="https://github.com/vino994" target="_self" rel="noreferrer" className="social-btn github">
                   <FaGithub /> GitHub
                 </a>
               </div>
