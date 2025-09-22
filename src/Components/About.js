@@ -53,7 +53,7 @@ function About() {
               <h6 className="about-sub">Top Projects</h6>
               <ul className="projects-list">
                 <li>🛒 <Link to="/project/delivery">Delivery App</Link> – React + Bootstrap + Cart Flow</li>
-                <li>🌦 <Link to="/project/weather">Weather App</Link> – OpenWeather API + React Hooks</li>
+                <li>🌦 <Link to="/project/construction">construction App</Link> – Construction API + React Hooks</li>
                 <li>🏨 <Link to="/project/hotel">Hotel Booking</Link> – UI Demo with React</li>
               </ul>
             </div>

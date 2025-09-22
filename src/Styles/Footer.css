@@ -13,13 +13,24 @@
   backdrop-filter: blur(6px);
 }
 
-/* Section Titles */
-.footer-title {
+/* Titles */
+.footer-title, h4 {
   font-family: "Bungee", sans-serif;
   font-weight: 700;
   color: var(--text-color);
 }
-.footer-info { color: var(--muted-text); }
+
+/* Fix muted text for dark theme */
+.footer-info,
+.contact-bottom,
+.text-muted {
+  color: var(--muted-text) !important;
+}
+body.dark-theme .footer-info,
+body.dark-theme .contact-bottom,
+body.dark-theme .text-muted {
+  color: #bbb !important; /* lighter for visibility */
+}
 
 /* Contact List */
 .contact-list {
@@ -33,9 +44,7 @@
   gap: 10px;
   font-size: 0.95rem;
 }
-.contact-item i {
-  font-size: 1.2rem;
-}
+.contact-item i { font-size: 1.2rem; }
 .contact-item a {
   text-decoration: none;
   color: var(--text-color);
@@ -50,32 +59,24 @@
   border-radius: 8px;
 }
 .form-control-dark::placeholder { color: var(--muted-text); }
+body.dark-theme .form-control-dark::placeholder { color: #aaa; }
 .form-control-dark:focus {
   border-color: var(--accent-color);
   box-shadow: 0 0 0 .2rem color-mix(in srgb, var(--accent-color) 25%, transparent);
-  background: var(--bg-color);
-  color: var(--text-color);
 }
 
-/* Button */
-.btn-danger {
+/* Buttons */
+.btn-danger, .btn-primary {
   font-weight: 600;
   border-radius: 8px;
   padding: 0.6rem 1.2rem;
   transition: transform 0.2s ease;
 }
-.btn-danger:hover { transform: translateY(-2px); }
-
-/* Map */
-.map-wrap {
-  min-height: 340px;
-  height: 100%;
+.btn-danger:hover, .btn-primary:hover {
+  transform: translateY(-2px);
 }
 
-/* Footer Bottom */
-.footer-bottom {
-  border-top: 1px dashed var(--card-border);
-}
+/* Social Icons */
 .social {
   width: 42px;
   height: 42px;
@@ -93,13 +94,59 @@
   transform: translateY(-2px);
 }
 
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px dashed var(--card-border);
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+.recruiter-tagline {
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
-  .footer-title { text-align: center; }
-  .footer-info { text-align: center; }
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
+  .footer-title, h4 { text-align: center; }
+  .footer-bottom { flex-direction: column; gap: 0.8rem; text-align: center; }
+  .btn { width: 100%; }
+}
+/* Fade-up Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeup {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Add slight stagger for multiple buttons */
+.animate-fadeup:nth-child(2) {
+  animation-delay: 0.2s;
+}
+/* 🔥 Pulse Glow Effect for Resume button */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 18px 6px rgba(220, 53, 69, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 2.5s infinite, fadeUp 0.8s ease forwards;
 }

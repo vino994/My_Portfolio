@@ -5,15 +5,12 @@ import emailjs from "@emailjs/browser";
 
 const CONTACT = {
   name: "Vinoth Sanjeevi",
-  address: "162 Shop street, Aranthangi, TN 614616",
+  address: "Tamil Nadu, India",
   phone: "+91 938033 4317",
   email: "vinodjayasudha@gmail.com",
-  lat: 10.1725,
-  lng: 78.9916,
 };
 
 export default function Footer() {
-  const mapSrc = `https://www.google.com/maps?q=${CONTACT.lat},${CONTACT.lng}&z=14&output=embed`;
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -41,14 +38,14 @@ export default function Footer() {
     <footer className="site-footer py-5">
       <div className="container">
         <div className="row g-4 align-items-stretch">
-          {/* Left: Contact + Form */}
+          {/* Left: Contact Form */}
           <div className="col-12 col-lg-6 d-flex">
             <div className="card glass flex-fill w-100">
               <div className="card-body">
                 <h3 className="footer-title mb-3">Let’s Connect</h3>
                 <p className="footer-info small mb-4">
-                  Interested in working together or discussing opportunities?
-                  Reach me directly below or drop a quick message.
+                  Looking for a passionate Frontend Developer?  
+                  Reach out below or send me a direct message.
                 </p>
 
                 {/* Contact Info */}
@@ -98,7 +95,7 @@ export default function Footer() {
                     </div>
                     <div className="col-12">
                       <button type="submit" className="btn btn-danger w-100">
-                        🚀 Hire Me / Send Message
+                        🚀 Send Message
                       </button>
                     </div>
                   </div>
@@ -107,36 +104,46 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Right: Map */}
+          {/* Right: Resume + Quick Links */}
           <div className="col-12 col-lg-6 d-flex">
-            <div className="card glass p-2 flex-fill w-100">
-              <div className="map-wrap rounded-3 overflow-hidden">
-                <iframe
-                  title="My location map"
-                  src={mapSrc}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  style={{ border: 0, width: "100%", height: "100%" }}
-                />
+            <div className="card glass flex-fill w-100 d-flex flex-column justify-content-center align-items-center p-4 text-center">
+              <h4 className="mb-3">Quick Actions</h4>
+   <a
+  href={`${process.env.PUBLIC_URL}/Vinoth_Sanjeevi_Resume.pdf`}
+  download="Vinoth_Sanjeevi_Resume.pdf"
+  className="btn btn-danger mb-3 w-75 animate-fadeup pulse-glow"
+>
+  📄 Download Resume
+</a>
+           <a
+  href="https://www.linkedin.com/in/vinothkumar-sanjeevi/"
+  target="_blank"
+  rel="noreferrer"
+  className="btn btn-primary mb-3 w-75 animate-fadeup"
+  style={{ animationDelay: "0.2s" }}  
+>
+  💼 Connect on LinkedIn
+</a>
+              <div className="social-links d-flex gap-3 justify-content-center">
+                <a className="social" href="https://github.com/vino994"><i className="bi bi-github" /></a>
+                <a className="social" href="https://www.facebook.com/vinothkumar.sanjeevi/"><i className="bi bi-facebook" /></a>
+                <a className="social" href="https://www.instagram.com/vinod_sanjeev/"><i className="bi bi-instagram" /></a>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
+        {/* Footer Bottom */}
         <div className="footer-bottom d-flex flex-column flex-md-row align-items-center justify-content-between mt-4 pt-3 text-center text-md-start">
-          <div className="d-flex gap-3 mb-3 mb-md-0 flex-wrap justify-content-center">
-            <a className="social" href="https://www.linkedin.com/in/vinothkumar-sanjeevi/"><i className="bi bi-linkedin" /></a>
-            <a className="social" href="https://github.com/vino994"><i className="bi bi-github" /></a>
-            <a className="social" href="https://www.facebook.com/vinothkumar.sanjeevi/"><i className="bi bi-facebook" /></a>
-            <a className="social" href="#"><i className="bi bi-instagram" /></a>
-          </div>
-          <div className="text-muted small">
+          <div className="text-muted small contact-bottom">
             <i className="bi bi-envelope me-1"></i>
             <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
             <span className="mx-2">|</span>
             <i className="bi bi-telephone me-1"></i>
             <a href={`tel:${CONTACT.phone}`}>{CONTACT.phone}</a>
+          </div>
+          <div className="recruiter-tagline mt-2 mt-md-0">
+            💡 Open to <strong>Frontend Developer</strong> roles — React, UI/UX, Remote & Onsite
           </div>
         </div>
       </div>
