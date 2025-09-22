@@ -4,114 +4,128 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Block with year + card */
-.exp-block {
-  position: relative;
-  min-height: 220px;
-  padding-left: 80px; /* create space for year */
+/* Section Title */
+.section-title {
+  font-family: "Bungee", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--muted-text);
 }
 
-/* Year watermark */
-.year-watermark {
-  position: absolute;
-  top: -35px;
-  left: 0;
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--year-watermark);
-  line-height: 1;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* Card */
-.exp-card {
-  position: relative;
+/* 🎯 Highlight Cards */
+.highlight-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 12px;
   padding: 1.5rem;
-  z-index: 2;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.exp-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+.highlight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
 }
-
-/* Text */
-.card-title {
-  font-family: "Bungee", sans-serif;
-  font-size: 1rem;
+.highlight-year {
   font-weight: 700;
-  color: var(--text-color);
-}
-.card-place {
+  font-size: 0.9rem;
   color: var(--accent-color);
-  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+.highlight-title {
+  font-size: 1.1rem;
   font-weight: 600;
+  margin-bottom: 4px;
 }
-.card-desc {
-  font-size: 0.92rem;
-  line-height: 1.6;
-  color: var(--text-color);
-  opacity: 0.85;
-}
-
-/* Section subtitle */
-.section-subtitle {
-  color: var(--muted-text);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+.highlight-place {
   font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted-text);
+  margin-bottom: 8px;
+}
+.highlight-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
-/* Underline wipe */
-.underline-wipe {
+/* Timeline */
+.timeline {
   position: relative;
-  display: inline-block;
+  margin: 2rem auto;
+  width: 90%;
+  max-width: 1000px;
 }
-.underline-wipe::after {
+.timeline::before {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -6px;
-  height: 3px;
-  width: 0;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
   background: var(--accent-color);
-  transition: width 0.6s ease;
+  transform: translateX(-50%);
 }
-.underline-wipe.in-view::after,
-.text-center:hover .underline-wipe::after {
-  width: 100%;
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px;
+}
+.timeline-item.left { left: 0; text-align: right; }
+.timeline-item.right { left: 50%; text-align: left; }
+.timeline-dot {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  z-index: 2;
+}
+.timeline-content {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+.timeline-content:hover {
+  transform: translateY(-4px);
+}
+.timeline-year {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 6px;
+}
+.text-accent {
+  color: var(--muted-text);
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 /* Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(16px);
 }
 .reveal.in-view {
   opacity: 1;
-  transform: translateY(0);
-  transition: transform 600ms ease, opacity 600ms ease;
+  transform: none;
+  transition: all 600ms ease;
   transition-delay: var(--stagger, 0ms);
 }
-.fade-down {
-  transform: translateY(-12px);
-}
 
-/* Responsive */
-@media (max-width: 576px) {
-  .exp-block {
-    padding-left: 50px;
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .timeline::before { left: 10px; }
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    text-align: left !important;
+    padding-left: 30px;
   }
-  .year-watermark {
-    font-size: 2rem;
-    top: 10px;
-  }
-  .exp-card {
-    padding: 1rem;
-  }
+  .timeline-dot { left: 10px; }
 }

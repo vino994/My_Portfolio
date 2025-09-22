@@ -1,72 +1,91 @@
-/* Dark section */
-.skills-dark {
+.skills-section {
   background: var(--bg-color);
   color: var(--text-color);
+  font-family: "Poppins", sans-serif;
 }
 
-.skills-title {
-  color: var(--text-color);
-  font-weight: 800;
-  letter-spacing: 2px;
-  display: inline-block;
-  position: relative;
-}
-.clients-title {
-  color: var(--text-color);
+/* Titles */
+.section-title {
+  font-family: "Bungee", sans-serif;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 1px;
 }
-.skills-sub {
-  color: var(--accent-color);
-  letter-spacing: 3px;
-  font-size: .85rem;
-  text-transform: uppercase;
-}
-
-/* underline accent for title */
-.underline-wipe::after{
-  content:""; position:absolute; left:0; bottom:-8px; height:3px; width:0;
-  background: var(--accent-color); border-radius:2px; transition:width 700ms ease 120ms;
-}
-.text-center .underline-wipe { animation: underlineAuto 1ms both; }
-/* ring center text */
-@keyframes underlineAuto { to { } }
-.ring-percent {
-  width: 68px; height: 48px;
-  display: grid; place-items: center;
-  color: var(--text-color);
-  font-weight: 800;
-  font-size: 14px;
-  border-radius: 10px;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+.section-title .highlight { color: var(--accent-color); }
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--muted-text);
+  margin-top: 8px;
 }
 
-/* labels */
-.skill-item {
+/* Top Skill Cards */
+.top-skill-card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 16px;
-  padding: 16px 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.skill-label {
-  margin-top: 10px;
+.top-skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+}
+.top-skill-card h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+.skill-meta {
+  font-size: 0.9rem;
+  color: var(--muted-text);
+}
+
+/* Icons Large */
+.skill-big {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.react { color: #61dafb; }
+.js { color: #f7df1e; }
+.node { color: #3c873a; }
+
+/* Other Skills */
+.other-skills {
+  text-align: center;
+}
+.text-accent { color: var(--accent-color); }
+
+.skill-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.badge-skill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-color);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 6px 12px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
 }
-
-/* clients */
-.clients-row { margin-top: .25rem; }
-.client-logo {
-  max-height: 48px;
-  width: auto;
-  filter: drop-shadow(0 4px 10px rgba(0,0,0,.2));
+.badge-skill:hover {
+  background: var(--accent-color);
+  color: #fff;
 }
-.client-logo:hover{ opacity:1; filter:grayscale(0%); transform: translateY(-2px); }
+.badge-skill svg { font-size: 1.1rem; color: var(--accent-color); }
+.badge-skill:hover svg { color: #fff; }
 
-/* small screens */
-@media (max-width:575.98px){
-  .ring-percent { font-size:.95rem; }
-  .client-logo { max-width:110px; }
+/* Responsive */
+@media (max-width: 768px) {
+  .top-skill-card { padding: 1.5rem; }
+  .skill-big { font-size: 2.5rem; }
+}
+@media (max-width: 576px) {
+  .top-skill-card { padding: 1.2rem; }
+  .skill-big { font-size: 2rem; }
 }

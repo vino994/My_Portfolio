@@ -1,143 +1,70 @@
-import React, { useMemo } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
 import "../Styles/Skills.css";
-import profilePic from "../Assets/mine.png";
-// Swap these with your logo images
-import c1 from "../Assets/logo1.png";
-import c2 from "../Assets/logo2.png";
-import c3 from "../Assets/logo3.png";
-import c4 from "../Assets/logo4.png";
-import c5 from "../Assets/logo2.png";
+import {
+  FaReact, FaNodeJs, FaJs, FaHtml5, FaCss3Alt,
+  FaBootstrap, FaGitAlt, FaGithub
+} from "react-icons/fa";
+import { SiRedux, SiMongodb, SiExpress, SiFigma, SiCanva } from "react-icons/si";
 
-const SKILLS = [
-  { label: "Web development",  value: 90, color: "#15c2f1" },
-  { label: "UI/UX design", value: 80, color: "#ff8b3d" },
-  { label: "Photoshop",  value: 75, color: "#ff553d" },
-  { label: "Digital marketing",   value: 70, color: "#15c2f1" },
+const TOP_SKILLS = [
+  { name: "React.js", level: "Advanced", years: "5+ yrs", icon: <FaReact className="skill-big react" /> },
+  { name: "JavaScript (ES6+)", level: "Advanced", years: "5+ yrs", icon: <FaJs className="skill-big js" /> },
+  { name: "Node.js", level: "Intermediate", years: "3+ yrs", icon: <FaNodeJs className="skill-big node" /> },
 ];
 
-function Ring({ value, color }) {
-  const size = 120;
-  const stroke = 10;
-  const r = (size - stroke) / 2;
-  const C = 2 * Math.PI * r;
-
-  // animate from full gap to target offset
-  const variants = useMemo(
-    () => ({
-      hidden: { strokeDashoffset: C },
-      show: {
-        strokeDashoffset: C * (1 - value / 100),
-        transition: { duration: 1.1, ease: [0.2, 0.7, 0.2, 1] },
-      },
-    }),
-    [C, value]
-  );
-
-  return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
-      {/* track */}
-      <circle
-        cx={size / 2}
-        cy={size / 2}
-        r={r}
-        fill="none"
-        stroke="rgba(255,255,255,.12)"
-        strokeWidth={stroke}
-      />
-      {/* progress ring */}
-      <motion.circle
-        cx={size / 2}
-        cy={size / 2}
-        r={r}
-        fill="none"
-        stroke={color}
-        strokeWidth={stroke}
-        strokeLinecap="round"
-        strokeDasharray={C}
-        variants={variants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.6 }}
-        style={{ filter: "var(--ring-shadow)" }}
-      />
-      {/* percentage bubble */}
-      <foreignObject
-        x={size / 2 - 34}
-        y={size / 2 - 24}
-        width="68"
-        height="48"
-      >
-        <div className="ring-percent">{value}%</div>
-      </foreignObject>
-    </svg>
-  );
-}
+const OTHER_SKILLS = [
+  { name: "Redux", icon: <SiRedux /> },
+  { name: "Express.js", icon: <SiExpress /> },
+  { name: "MongoDB", icon: <SiMongodb /> },
+  { name: "HTML5", icon: <FaHtml5 /> },
+  { name: "CSS3", icon: <FaCss3Alt /> },
+  { name: "Bootstrap", icon: <FaBootstrap /> },
+  { name: "Git", icon: <FaGitAlt /> },
+  { name: "GitHub", icon: <FaGithub /> },
+  { name: "Figma", icon: <SiFigma /> },
+  { name: "Canva", icon: <SiCanva /> },
+];
 
 export default function SkillsClients() {
-
-  const titleV = { hidden: { opacity: 0, y: -12 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
-  const groupV = { hidden: {}, show: { transition: { staggerChildren: 0.1, when: "beforeChildren" } } };
-  const itemV = { hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.7 } } };
-
   return (
-    <section className="skills-dark py-5">
+    <section className="skills-section py-5" id="skills">
       <div className="container">
-        {/* Heading */}
-        <motion.div
-          className="text-center mb-4"
-          variants={titleV}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <h2 className="skills-title underline-wipe mb-4">MY SKILLS</h2>
-          <div className="skills-sub">EXPERTISE</div>
-        </motion.div>
+        {/* Header */}
+        <div className="text-center mb-5">
+          <h2 className="section-title underline-wipe">
+            CORE <span className="highlight">COMPETENCIES</span>
+          </h2>
+          <p className="section-subtitle">
+            My strongest technical areas, validated through years of hands-on work
+          </p>
+        </div>
 
-        {/* Rings */}
-        <motion.div
-          className="row justify-content-center g-4 text-center"
-          variants={groupV}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          {SKILLS.map((s, i) => (
-            <motion.div className="col-6 col-md-3" variants={itemV} key={i}>
-              <div className="skill-item">
-                <Ring value={s.value} color={s.color} />
-                <div className="skill-label">{s.label}</div>
+        {/* Top Skills */}
+        <div className="row g-4 justify-content-center mb-5">
+          {TOP_SKILLS.map((skill, idx) => (
+            <div className="col-12 col-md-4" key={idx}>
+              <div className="top-skill-card shadow-lg h-100">
+                {skill.icon}
+                <h4>{skill.name}</h4>
+                <p className="skill-meta">
+                  {skill.level} • {skill.years}
+                </p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Clients */}
-        <motion.div
-          className="text-center mt-5 mb-3"
-          variants={titleV}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
-        >
-          <h3 className="clients-title">CLIENTS</h3>
-          <div className="skills-sub">WORKED WITH</div>
-        </motion.div>
-
-        <motion.div
-          className="row justify-content-center align-items-center g-4 clients-row"
-          variants={groupV}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          {[c1, c2, c3, c4, c5].map((logo, i) => (
-            <motion.div className="col-6 col-md-2 d-flex justify-content-center" variants={itemV} key={i}>
-              <img src={logo} alt={`client-${i+1}`} className="client-logo" />
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Other Skills */}
+        <div className="other-skills">
+          <h5 className="mb-3 text-accent">Other Tools & Technologies</h5>
+          <div className="skill-badges">
+            {OTHER_SKILLS.map((s, i) => (
+              <div className="badge-skill" key={i}>
+                {s.icon} <span>{s.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
