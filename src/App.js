@@ -1,7 +1,5 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Home from './Components/Home';
 import About from './Components/About';
 import Education from './Components/Education';
@@ -14,47 +12,23 @@ import Footer from './Components/Footer';
 
 export default function App() {
   return (
-    <Router basename="/My_Portfolio">  {/* 👈 important for GitHub Pages */}
+    <Router basename="/My_Portfolio">
       <Routes>
-        {/* Main single-page layout at root */}
         <Route
           path="/"
           element={
             <div>
               <Home />
-
-              <section id="about">
-                <About />
-              </section>
-
-              <section id="portfolio">
-                <Portfolio />
-              </section>
-
-              <section id="experience">
-                <ExperienceSection />
-              </section>
-
-              <section id="services">
-                <ServicesFramer />
-              </section>
-
-              <section id="education">
-                <Education />
-              </section>
-
-              <section id="skills">
-                <SkillsClients />
-              </section>
-
-              <section id="contact">
-                <Footer />
-              </section>
+              <section id="about"><About /></section>
+              <section id="portfolio"><Portfolio /></section>
+              <section id="experience"><ExperienceSection /></section>
+              <section id="services"><ServicesFramer /></section>
+              <section id="education"><Education /></section>
+              <section id="skills"><SkillsClients /></section>
+              <section id="contact"><Footer /></section>
             </div>
           }
         />
-
-        {/* Project viewer route: opens project inside app using iframe */}
         <Route path="/project/:id" element={<ProjectViewer />} />
       </Routes>
     </Router>

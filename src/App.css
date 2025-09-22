@@ -1,21 +1,5 @@
+/* ========== Global Utilities (NO THEME LOGIC HERE) ========== */
 
-body {
- font-family: 'Lora', serif;
-}
-h1, h2, h3 {
-  font-family: 'Montserrat', sans-serif;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #111;
-  color: white;
-   font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
-
-  font-style: normal;
-}
 /* Common profile pill button */
 .profile-pill {
   display: inline-block;
@@ -30,7 +14,6 @@ body {
   background: transparent;
 }
 
-/* Hover effect */
 .profile-pill:hover {
   background: var(--text-color);
   color: var(--bg-color);
@@ -38,7 +21,7 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
-/* Add platform-specific accents */
+/* Platform-specific accents */
 .profile-pill.linkedin {
   border-color: #0a66c2 !important;
   color: #0a66c2;
@@ -66,56 +49,21 @@ body {
   color: #fff;
 }
 
+/* Gradient text utility */
 .gradient-text {
   background: linear-gradient(90deg, #fff, #666);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Navbar link */
 .nav-link {
   font-size: 1.2rem;
   margin: 5px 0;
+  color: var(--text-color);
   transition: color 0.3s;
 }
 
 .nav-link:hover {
-  color: #fff;
-}
-/* theme.css */
-
-/* Default (root) values */
-:root {
-  --bg-color: #111;
-  --text-color: #fff;
-  --muted-text: #581212;
-  --accent-color: #ff3b3b;
-   --dif-color:rgb(230, 233, 238);
-  /* ... */
-}
-
-.light-theme {
-  --bg-color: #f9f9f9;
-  --text-color: #111;
-  --muted-text: #555;
- 
-  /* darker gray for light mode */
-  /* ... */
-}
-
-/* Apply globally */
-body.dark-theme,
-body.light-theme {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-
-.dark-theme {
-  --bg-color: #111;
-  --text-color: #fff;
-}
-
-.light-theme {
-  --bg-color: #f9f9f9;
-  --text-color: #111;
+  color: var(--accent-color);
 }

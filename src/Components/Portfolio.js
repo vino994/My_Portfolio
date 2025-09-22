@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";   // 👈 add Link
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/Portfolio.css";
 
@@ -15,15 +16,15 @@ import p9 from "../Assets/hotel.PNG";
 
 // Portfolio items
 const ITEMS = [
-  { id: 1, src: p1, title: "Delivery App", tags: ["React", "Bootstrap"], liveUrl: "https://vino994.github.io/delivery-app/", codeUrl: "https://github.com/vino994/delivery-app" },
-  { id: 2, src: p2, title: "Business Landing", tags: ["React", "UI/UX"], liveUrl: "https://vino994.github.io/ashvidha/", codeUrl: "https://github.com/vino994/ashvidha" },
-  { id: 3, src: p3, title: "Social App", tags: ["React", "API"], liveUrl: "https://vino994.github.io/dhiya-social-app/", codeUrl: "https://github.com/vino994/dhiya-social-app" },
-  { id: 4, src: p4, title: "Zoo Info", tags: ["React"], liveUrl: "https://vino994.github.io/zooapp/", codeUrl: "https://github.com/vino994/zooapp" },
-  { id: 5, src: p5, title: "Jewellery Showcase", tags: ["Responsive", "UI/UX"], liveUrl: "https://vino994.github.io/Jewellery-/", codeUrl: "https://github.com/vino994/Jewellery-" },
-  { id: 6, src: p6, title: "Weather App", tags: ["React", "API"], liveUrl: "https://vino994.github.io/weather_app/", codeUrl: "https://github.com/vino994/weather_app" },
-  { id: 7, src: p8, title: "Construction", tags: ["React"], liveUrl: "https://vino994.github.io/construction/", codeUrl: "https://github.com/vino994/construction" },
-  { id: 8, src: p7, title: "Static Site", tags: ["HTML", "Responsive"], liveUrl: "https://vino994.github.io/staticsite/", codeUrl: "https://github.com/vino994/staticsite" },
-  { id: 9, src: p9, title: "Hotel Booking", tags: ["React", "UI/UX"], liveUrl: "https://vino994.github.io/hotelbooking/", codeUrl: "https://github.com/vino994/hotelbooking" }
+  { id: "delivery", src: p1, title: "Delivery App", tags: ["React", "Bootstrap"], liveUrl: "https://vino994.github.io/delivery-app/", codeUrl: "https://github.com/vino994/delivery-app" },
+  { id: "business", src: p2, title: "Business Landing", tags: ["React", "UI/UX"], liveUrl: "https://vino994.github.io/ashvidha/", codeUrl: "https://github.com/vino994/ashvidha" },
+  { id: "social", src: p3, title: "Social App", tags: ["React", "API"], liveUrl: "https://vino994.github.io/dhiya-social-app/", codeUrl: "https://github.com/vino994/dhiya-social-app" },
+  { id: "zoo", src: p4, title: "Zoo Info", tags: ["React"], liveUrl: "https://vino994.github.io/zooapp/", codeUrl: "https://github.com/vino994/zooapp" },
+  { id: "jewel", src: p5, title: "Jewellery Showcase", tags: ["Responsive", "UI/UX"], liveUrl: "https://vino994.github.io/Jewellery-/", codeUrl: "https://github.com/vino994/Jewellery-" },
+  { id: "weather", src: p6, title: "Weather App", tags: ["React", "API"], liveUrl: "https://vino994.github.io/weather_app/", codeUrl: "https://github.com/vino994/weather_app" },
+  { id: "construction", src: p8, title: "Construction", tags: ["React"], liveUrl: "https://vino994.github.io/construction/", codeUrl: "https://github.com/vino994/construction" },
+  { id: "static", src: p7, title: "Static Site", tags: ["HTML", "Responsive"], liveUrl: "https://vino994.github.io/staticsite/", codeUrl: "https://github.com/vino994/staticsite" },
+  { id: "hotel", src: p9, title: "Hotel Booking", tags: ["React", "UI/UX"], liveUrl: "https://vino994.github.io/hotelbooking/", codeUrl: "https://github.com/vino994/hotelbooking" }
 ];
 
 // animation
@@ -38,7 +39,6 @@ export default function Portfolio() {
   const [showAll, setShowAll] = useState(false);
 
   const categories = ["All", "React", "API", "UI/UX", "Responsive"];
-
   const filtered = filter === "All" ? ITEMS : ITEMS.filter(it => it.tags.includes(filter));
   const visible = showAll ? filtered : filtered.slice(0, 6);
 
@@ -93,7 +93,8 @@ export default function Portfolio() {
                       ))}
                     </div>
                     <div className="d-flex gap-2">
-                      <a href={item.liveUrl} target="_blank" rel="noreferrer" className="btn btn-sm btn-danger">🔗 Live</a>
+                      {/* 👇 Navigate inside app instead of new tab */}
+                      <Link to={`/project/${item.id}`} className="btn btn-sm btn-danger">🔗 Live</Link>
                       <a href={item.codeUrl} target="_blank" rel="noreferrer" className="btn btn-sm btn-outline-light">💻 Code</a>
                     </div>
                   </div>
@@ -115,7 +116,15 @@ export default function Portfolio() {
             {!showAll ? (
               <button className="btn btn-outline-light px-4" onClick={() => setShowAll(true)}>Load More</button>
             ) : (
-              <button className="btn btn-outline-light px-4" onClick={() => { setShowAll(false); window.scrollTo({ top: document.getElementById("portfolio").offsetTop - 60, behavior: "smooth" }); }}>Show Less</button>
+              <button
+                className="btn btn-outline-light px-4"
+                onClick={() => {
+                  setShowAll(false);
+                  window.scrollTo({ top: document.getElementById("portfolio").offsetTop - 60, behavior: "smooth" });
+                }}
+              >
+                Show Less
+              </button>
             )}
           </motion.div>
         )}

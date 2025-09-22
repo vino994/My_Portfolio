@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/ExperienceSection.css";
+import { FaLaptopCode, FaReact, FaHtml5, FaCss3Alt } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -10,6 +11,7 @@ const EXPERIENCE = [
     title: "Senior Software Developer",
     company: "Bee Logical Software Solutions",
     place: "Chennai",
+    icon: <FaLaptopCode className="exp-icon" />,
     desc: [
       "Led frontend development using React and Redux.",
       "Collaborated with backend team, occasionally working with Node.js.",
@@ -21,6 +23,7 @@ const EXPERIENCE = [
     title: "Junior Frontend Developer",
     company: "Altorcks Software",
     place: "Coimbatore",
+    icon: <FaReact className="exp-icon" />,
     desc: [
       "Built responsive applications using HTML, CSS, JavaScript, jQuery, and React.",
       "Worked on 3 client projects with cross-functional teams.",
@@ -32,6 +35,7 @@ const EXPERIENCE = [
     title: "Frontend Development Trainee",
     company: "Hogarth Worldwide",
     place: "Pune",
+    icon: <FaHtml5 className="exp-icon" />,
     desc: [
       "Hands-on training in HTML, CSS, JavaScript, and jQuery.",
       "Gained exposure to production-level code and development standards.",
@@ -43,6 +47,7 @@ const EXPERIENCE = [
     title: "Content Moderator & Designer",
     company: "Teleperformance",
     place: "Mohali",
+    icon: <FaCss3Alt className="exp-icon" />,
     desc: [
       "Reviewed and moderated digital content for global clients.",
       "Worked with design tools like Photoshop, Figma, and Illustrator.",
@@ -67,18 +72,21 @@ export default function ExperienceSection() {
           {EXPERIENCE.map((item, index) => (
             <div
               key={index}
-              className={`timeline-item d-flex justify-content-${
-                index % 2 === 0 ? "start" : "end"
+              className={`timeline-item ${
+                index % 2 === 0 ? "left" : "right"
               }`}
               data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
             >
               <div className="timeline-dot"></div>
-              <div className="timeline-content p-3 shadow-lg">
+              <div className="timeline-content shadow-lg">
                 <div className="timeline-year">{item.year}</div>
-                <h4 className="fw-bold mb-1">{item.title}</h4>
+                <div className="d-flex align-items-center mb-2" data-aos="zoom-in">
+                  {item.icon}
+                  <h4 className="fw-bold ms-2 mb-0">{item.title}</h4>
+                </div>
                 <h6 className="text-danger mb-1">{item.company}</h6>
                 <div className="small mb-2">{item.place}</div>
-                <ul className="mb-0 ps-3">
+                <ul>
                   {item.desc.map((point, i) => (
                     <li key={i}>{point}</li>
                   ))}

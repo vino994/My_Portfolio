@@ -1,16 +1,47 @@
-.experience-section {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+/* 🌙 Dark & ☀️ Light theme variables */
+:root {
+  /* Light mode (default) */
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --card-bg: #f8f9fa;
+  --accent-color: #ff3b3b;
 }
 
+[data-theme="dark"] {
+  /* Dark mode */
+  --bg-color: #0e0e0f;
+  --text-color: #d7d7d7;
+  --card-bg: #1a1a1a; /* dark cards */
+  --accent-color: #ff3b3b;
+}
+
+/* Section */
+.experience-section {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  font-family: "Inter", sans-serif;
+  padding: 4rem 0;
+}
+
+.experience-section h2 {
+  font-family: "Bungee", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--text-color) !important;
+}
+.experience-section h2 span {
+  color: var(--accent-color);
+}
+
+/* Timeline line */
 .timeline {
   position: relative;
   margin: 0 auto;
-  width: 80%;
-  max-width: 900px;
+  width: 90%;
+  max-width: 1000px;
   padding: 40px 0;
 }
-
 .timeline::before {
   content: "";
   position: absolute;
@@ -18,159 +49,133 @@
   bottom: 0;
   left: 50%;
   width: 2px;
-  background: #555;
+  background: linear-gradient(to bottom, #ff3b3b, #ff8a8a, #ff3b3b);
+  animation: glowLine 6s linear infinite;
   transform: translateX(-50%);
 }
+@keyframes glowLine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
+/* Timeline items */
 .timeline-item {
   position: relative;
   width: 50%;
-  padding: 20px;
+  padding: 20px 30px;
 }
-
-.timeline-item .timeline-content {
-  background: var(--card-bg);
-  border-left: 3px solid var(--accent-color, red);
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 320px;
-  color: var(--text-color);
-  position: relative;
-}
-
-.timeline-content .timeline-year {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--accent-color, red);
-  margin-bottom: 10px;
-  display: block;
-}
-
-/* Add dot on line */
-.timeline-dot {
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
-  background: var(--accent-color, red);
-  border-radius: 50%;
-  z-index: 2;
-}
-
-/* Odd items -> left */
-.timeline-item:nth-child(odd) {
-  left: 0;
-  text-align: right;
-}
-
-/* Even items -> right */
-.timeline-item:nth-child(even) {
-  left: 50%;
-}
-
-/* -------- Responsive Fix -------- */
-@media (max-width: 768px) {
-  .timeline {
-    width: 100%;
-    padding-left: 20px;
-  }
-
-  .timeline::before {
-    left: 12px; /* line moves left */
-    transform: none;
-  }
-
-  .timeline-item {
-    width: 100%;
-    left: 0 !important; /* force all items left */
-    text-align: left !important;
-    padding: 0 0 20px 40px; /* space for line */
-    margin-bottom: 1.5rem;
-  }
-
-  .timeline-item .timeline-content {
-    max-width: 100%;
-    padding: 15px;
-  }
-
-  .timeline-content .timeline-year {
-    margin-bottom: 6px;
-    font-size: 1rem;
-  }
-
-  .timeline-dot {
-    left: 12px; /* dot aligns with line */
-    transform: none;
-  }
-}
-/* --- existing code above stays same --- */
+.timeline-item.left { left: 0; text-align: left; }
+.timeline-item.right { left: 50%; text-align: left; }
 
 .timeline-dot {
   position: absolute;
-  top: 30px;
+  top: 35px;
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
-  background: var(--accent-color, red);
+  width: 16px;
+  height: 16px;
+  background: var(--accent-color);
   border-radius: 50%;
   z-index: 2;
-
-  /* pulse effect */
-  box-shadow: 0 0 0 rgba(255, 0, 0, 0.7);
   animation: pulse 2s infinite;
 }
-
-/* Pulse animation */
 @keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
-    transform: scale(1);
-  }
-  50% {
-    box-shadow: 0 0 12px 6px rgba(255, 0, 0, 0.4);
-    transform: scale(1.2);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
-    transform: scale(1);
-  }
+  0% { box-shadow: 0 0 0 0 rgba(255,59,59,0.6); }
+  70% { box-shadow: 0 0 12px 12px rgba(255,59,59,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,59,59,0); }
 }
 
-/* -------- Responsive Fix -------- */
+/* Card */
+.timeline-content {
+  background-color: var(--card-bg) !important;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 90%;
+  margin: 0 auto;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
+  transition: transform 0.3s ease;
+}
+.timeline-content:hover {
+  transform: translateY(-5px);
+}
+
+/* Text inside cards */
+.timeline-year {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+.timeline-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color) !important;
+}
+.timeline-content h6 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+.timeline-content .small {
+  font-size: 0.85rem;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+/* List */
+.timeline-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.timeline-content ul li {
+  position: relative;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+  color: var(--text-color) !important;
+  padding-left: 20px;
+}
+.timeline-content ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+}
+
+/* Icons */
+.exp-icon {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-right: 8px;
+  animation: iconPulse 2s infinite;
+}
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   .timeline {
     width: 100%;
-    padding-left: 20px;
+    padding-left: 16px;
   }
-
-  .timeline::before {
-    left: 12px; /* line moves left */
-    transform: none;
-  }
-
+  .timeline::before { left: 10px; }
   .timeline-item {
     width: 100%;
-    left: 0 !important; /* force all items left */
-    text-align: left !important;
-    padding: 0 0 20px 40px; /* space for line */
-    margin-bottom: 1.5rem;
+    left: 0 !important;
+    padding: 0 0 20px 32px;
   }
-
   .timeline-item .timeline-content {
     max-width: 100%;
-    padding: 15px;
+    padding: 14px;
   }
-
-  .timeline-content .timeline-year {
-    margin-bottom: 6px;
-    font-size: 1rem;
-  }
-
   .timeline-dot {
-    left: 12px; /* dot aligns with line */
-    transform: none;
+    left: 10px;
+    width: 12px;
+    height: 12px;
   }
 }

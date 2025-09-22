@@ -3,30 +3,29 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/Education.css";
 
 const EDUCATION = [
-{
-  year: "2024 – Present",
-  title: "Full Stack Development (MERN) — In Progress",
-  place: "Guvi – IIT Madras, Online",
-  desc: "Currently enrolled in a career upskilling program focused on Full Stack Development. Learning MERN stack (MongoDB, Express.js, React, Node.js), REST APIs, and deploying real-world projects. Certification from Guvi – IIT Madras is in progress.",
-},
+  {
+    year: "2024 – Present",
+    title: "Full Stack Development (MERN) — In Progress",
+    place: "Guvi – IIT Madras (Online)",
+    desc: "Currently pursuing a career upskilling program focused on Full Stack Development. Learning MongoDB, Express.js, React, Node.js, REST APIs, and building real-world projects. Certification from Guvi – IIT Madras is ongoing.",
+  },
   {
     year: "2016",
     title: "B.E. Computer Science — 72%",
-    place:
-      "Coimbatore Institute of Engineering and Technology, Coimbatore",
-    desc: "Graduated in 2016. Strong foundation in algorithms, data structures, DBMS, operating systems, and web technologies; completed multiple project builds.",
+    place: "Coimbatore Institute of Engineering and Technology, Coimbatore",
+    desc: "Built strong foundation in algorithms, data structures, DBMS, operating systems, and web technologies. Completed multiple academic projects demonstrating problem-solving and practical skills.",
   },
   {
     year: "2012",
     title: "Higher Secondary (12th) — 78%",
     place: "Government Boys Higher Secondary School, Aranthangi",
-    desc: "Completed HSC (2010–2012) with focus on Mathematics, Physics, Chemistry, and Computer Science.",
+    desc: "Completed Higher Secondary with a focus on Mathematics, Physics, Chemistry, and Computer Science.",
   },
   {
     year: "2010",
     title: "Secondary School (10th) — 85%",
     place: "National High School, Perumarudhur",
-    desc: "Completed SSLC in 2010 with strong academic performance across all subjects.",
+    desc: "Achieved strong academic performance across subjects, with consistent excellence in mathematics and science.",
   },
 ];
 
@@ -55,16 +54,12 @@ export default function Education() {
   }, []);
 
   return (
-    <section className="section-dark py-5" ref={containerRef}>
+    <section className="education-section py-5" ref={containerRef}>
       <div className="container">
         {/* Header */}
         <div className="text-center mb-5 reveal fade-down">
-          <h2 className="section-title mb-10 underline-wipe">
-            EDUCATION
-          </h2>
-          <div className="section-subtitle mb-7 mt-3">
-            ACADEMIC HISTORY
-          </div>
+          <h2 className="section-title underline-wipe">EDUCATION</h2>
+          <div className="section-subtitle mt-2">Academic History</div>
         </div>
 
         {/* Education Grid */}
@@ -72,17 +67,15 @@ export default function Education() {
           {EDUCATION.map((item, idx) => (
             <div className="col-12 col-md-6" key={idx}>
               <div
-                className="position-relative exp-block reveal fade-up"
-                style={{ "--stagger": `${idx * 80}ms` }}
+                className="exp-block reveal fade-up"
+                style={{ "--stagger": `${idx * 120}ms` }}
               >
-                <div className="year-watermark reveal scale-in">
-                  {item.year}
-                </div>
-                <div className="card bg-card shadow-lg exp-card">
+                <div className="year-watermark">{item.year}</div>
+                <div className="card exp-card shadow-lg">
                   <div className="card-body">
-                    <h5 className="card-title mb-1">{item.title}</h5>
-                    <div className="text-accent mb-2">{item.place}</div>
-                    <p className="mb-0">{item.desc}</p>
+                    <h5 className="card-title mb-2">{item.title}</h5>
+                    <div className="card-place mb-2">{item.place}</div>
+                    <p className="card-desc">{item.desc}</p>
                   </div>
                 </div>
               </div>
@@ -93,3 +86,4 @@ export default function Education() {
     </section>
   );
 }
+  

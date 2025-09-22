@@ -1,101 +1,117 @@
 .education-section {
   background: var(--bg-color);
   color: var(--text-color);
+  font-family: "Poppins", sans-serif;
 }
 
-/* Reuse Experience styles */
+/* Block with year + card */
 .exp-block {
-  min-height: 200px;
   position: relative;
+  min-height: 220px;
+  padding-left: 80px; /* create space for year */
 }
+
+/* Year watermark */
 .year-watermark {
   position: absolute;
-  top: -10px;
-  left: -6px;
-  font-size: 4.5rem;
+  top: -35px;
+  left: 0;
+  font-size: 3rem;
   font-weight: 800;
   color: var(--year-watermark);
   line-height: 1;
+  z-index: 1;
   pointer-events: none;
 }
-.bg-card {
+
+/* Card */
+.exp-card {
+  position: relative;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
-  backdrop-filter: blur(6px);
-  color: var(--text-color);
-}
-.exp-card {
-  margin-left: 60px;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  border-radius: 12px;
+  padding: 1.5rem;
+  z-index: 2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .exp-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.5);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
 }
-.text-accent {
-  color: var(--muted-text);
+
+/* Text */
+.card-title {
+  font-family: "Bungee", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+.card-place {
+  color: var(--accent-color);
+  font-size: 0.9rem;
   font-weight: 600;
+}
+.card-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  opacity: 0.85;
+}
+
+/* Section subtitle */
+.section-subtitle {
+  color: var(--muted-text);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 0.9rem;
+}
+
+/* Underline wipe */
+.underline-wipe {
+  position: relative;
+  display: inline-block;
+}
+.underline-wipe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 3px;
+  width: 0;
+  background: var(--accent-color);
+  transition: width 0.6s ease;
+}
+.underline-wipe.in-view::after,
+.text-center:hover .underline-wipe::after {
+  width: 100%;
 }
 
 /* Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  will-change: transform, opacity;
+  transform: translateY(20px);
 }
 .reveal.in-view {
   opacity: 1;
-  transform: none;
-  transition: transform 600ms cubic-bezier(.2, .7, .2, 1),
-    opacity 600ms ease;
+  transform: translateY(0);
+  transition: transform 600ms ease, opacity 600ms ease;
   transition-delay: var(--stagger, 0ms);
 }
-.fade-up {}
 .fade-down {
   transform: translateY(-12px);
 }
-.scale-in {
-  transform: scale(0.96);
-  opacity: 0;
-}
-.scale-in.in-view {
-  transform: scale(1);
-  opacity: 1;
-  top: -50px;
-  transition: transform 700ms cubic-bezier(.16, .84, .44, 1),
-    opacity 600ms ease;
-}
-
-/* Underline wipe effect */
-.underline-wipe::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -8px;
-  height: 3px;
-  width: 0;
-  background: var(--accent-color);
-  border-radius: 2px;
-  transition: width 700ms ease 120ms;
-}
-.text-center:hover .underline-wipe::after {
-  width: 100%;
-}
-.reveal.in-view .underline-wipe::after,
-.underline-wipe.in-view::after {
-  width: 100%;
-}
 
 /* Responsive */
-@media (max-width: 575.98px) {
-  .exp-card {
-    margin-left: 36px;
+@media (max-width: 576px) {
+  .exp-block {
+    padding-left: 50px;
   }
   .year-watermark {
-    font-size: 3rem;
+    font-size: 2rem;
+    top: 10px;
   }
-  .scale-in.in-view {
-    top: -35px;
-    font-size: 2.4rem !important;
+  .exp-card {
+    padding: 1rem;
   }
 }
