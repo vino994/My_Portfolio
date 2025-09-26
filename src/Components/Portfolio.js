@@ -10,7 +10,7 @@ import p3 from "../Assets/project-3.PNG";
 import p4 from "../Assets/project-4.PNG";
 import p5 from "../Assets/jewel.PNG";
 import p6 from "../Assets/project-5.PNG";
-import p7 from "../Assets/project-6.PNG";
+import p7 from "../Assets/static.PNG";
 import p8 from "../Assets/project-7.PNG";
 import p9 from "../Assets/hotel.PNG";
 
@@ -23,7 +23,7 @@ const ITEMS = [
   { id: "jewel", src: p5, title: "Jewellery Showcase", tags: ["Responsive", "UI/UX"], liveUrl: "https://vino994.github.io/Jewellery-/", codeUrl: "https://github.com/vino994/Jewellery-" },
   { id: "weather", src: p6, title: "Weather App", tags: ["React", "API"], liveUrl: "https://vino994.github.io/weather_app/", codeUrl: "https://github.com/vino994/weather_app" },
   { id: "construction", src: p8, title: "Construction", tags: ["React"], liveUrl: "https://vino994.github.io/construction/", codeUrl: "https://github.com/vino994/construction" },
-  { id: "static", src: p7, title: "Static Site", tags: ["HTML", "Responsive"], liveUrl: "https://vino994.github.io/staticsite/", codeUrl: "https://github.com/vino994/staticsite" },
+  { id: "static", src: p7, title: "Static Site", tags: ["HTML", "Responsive"], liveUrl: "https://vino994.github.io/Html-Css-Landingpage/", codeUrl: "https://github.com/vino994/Html-Css-Landingpage" },
   { id: "hotel", src: p9, title: "Hotel Booking", tags: ["React", "UI/UX"], liveUrl: "https://vino994.github.io/hotelbooking/", codeUrl: "https://github.com/vino994/hotelbooking" }
 ];
 

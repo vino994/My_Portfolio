@@ -7,7 +7,7 @@ import p3 from "../Assets/project-3.PNG";
 import p4 from "../Assets/project-4.PNG";
 import p5 from "../Assets/jewel.PNG";
 import p6 from "../Assets/project-5.PNG";
-import p7 from "../Assets/project-6.PNG";
+import p7 from "../Assets/static.PNG";
 import p8 from "../Assets/project-7.PNG";
 import p9 from "../Assets/hotel.PNG";
 
@@ -19,7 +19,7 @@ const ITEMS = [
   { id: "jewel", src: p5, repoUrl: "https://vino994.github.io/Jewellery-/", desc: "Jewellery Showcase — elegant product display" },
   { id: "weather", src: p6, repoUrl: "https://vino994.github.io/weather_app/", desc: "Weather App — React Hooks + OpenWeather API" },
   { id: "construction", src: p8, repoUrl: "https://vino994.github.io/construction/", desc: "Construction Website — responsive React site" },
-  { id: "static", src: p7, repoUrl: "https://vino994.github.io/staticsite/", desc: "Static Site — HTML/CSS/React" },
+  { id: "static", src: p7, repoUrl: "https://vino994.github.io/Html-Css-Landingpage//", desc: "Static Site — HTML/CSS/React" },
   { id: "hotel", src: p9, repoUrl: "https://vino994.github.io/hotelbooking/", desc: "Hotel Booking — UI demo for booking system" }
 ];
 
