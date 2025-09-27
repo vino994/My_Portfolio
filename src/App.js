@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import About from './Components/About';
 import Education from './Components/Education';
@@ -7,12 +7,12 @@ import ExperienceSection from './Components/ExperienceSection';
 import ServicesFramer from './Components/ServicesFramer';
 import SkillsClients from './Components/SkillsClients';
 import Portfolio from './Components/Portfolio';
-import ProjectViewer from "./Components/ProjectViewer";
+import ProjectViewer from './Components/ProjectViewer';
 import Footer from './Components/Footer';
 
 export default function App() {
   return (
-    <Router basename="/My_Portfolio">
+    <Router>
       <Routes>
         <Route
           path="/"
