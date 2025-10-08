@@ -26,8 +26,8 @@ function Home() {
 
         {/* Resume Download */}
         <a
-          href={`${process.env.PUBLIC_URL}/Vinoth_Sanjeevi_CV.pdf`}
-          download="Vinoth_Sanjeevi_CV.pdf"
+          href={`${process.env.PUBLIC_URL}/vinod-sanjeev.pdf`}
+          download="vinod-sanjeev.pdf"
           className="btn btn-danger"
           aria-label="Download Resume"
         >

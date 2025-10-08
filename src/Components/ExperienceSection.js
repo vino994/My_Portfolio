@@ -7,54 +7,91 @@ import "aos/dist/aos.css";
 
 const EXPERIENCE = [
   {
-    year: "2021 – 2024",
-    title: "Senior Software Developer",
-    company: "Bee Logical Software Solutions",
-    place: "Chennai",
+    year: "2023 – Present",
+    title: "Career Break / MERN Stack Developer (Learning)",
+    company: "Independent / Upskilling",
+    place: "Coimbatore, Tamil Nadu",
+    icon: <FaReact className="exp-icon" />,
+    desc: [
+      "Completed hands-on MERN Full-Stack Developer course covering React, Node.js, Express, and MongoDB.",
+      "Built and deployed 3+ full-stack projects demonstrating CRUD operations and authentication.",
+      "Focused on reusable UI design, API integration, and scalable frontend architecture.",
+    ],
+  },
+  {
+    year: "2023 (Jan – Jul)",
+    title: "React Developer",
+    company: "Vation Digital Pvt Ltd",
+    place: "Coimbatore, Tamil Nadu",
     icon: <FaLaptopCode className="exp-icon" />,
     desc: [
-      "Led frontend development using React and Redux.",
-      "Collaborated with backend team on Node.js integrations.",
-      "Delivered 2 major projects ensuring performance and scalability.",
+      "Developed responsive and data-driven dashboards using ReactJS and Tailwind CSS.",
+      "Enhanced UI performance and accessibility, reducing page load times by 20%.",
+      "Collaborated with product teams to deliver optimized, user-friendly web interfaces.",
+    ],
+  },
+  {
+    year: "2022 (Mar – Dec)",
+    title: "Frontend Developer",
+    company: "Bee Logical Software Solutions / TrueTech Solutions Pvt Ltd",
+    place: "Pune / Chennai, India",
+    icon: <FaLaptopCode className="exp-icon" />,
+    desc: [
+      "Delivered multiple client-facing web apps using ReactJS, Redux, and TypeScript.",
+      "Integrated RESTful APIs and implemented component-based architecture for maintainability.",
+      "Optimized UI rendering and ensured cross-browser compatibility.",
+    ],
+  },
+  {
+    year: "2021 (Jul) – 2022 (Mar)",
+    title: "UI Developer",
+    company: "WPP Marketing Communications India Pvt Ltd (Hogarth Worldwide)",
+    place: "Chennai, India",
+    icon: <FaHtml5 className="exp-icon" />,
+    desc: [
+      "Developed enterprise analytics dashboards using ReactJS and Redux.",
+      "Strengthened modular design patterns for UI consistency and scalability.",
+      "Worked closely with backend teams to integrate APIs and ensure seamless data flow.",
     ],
   },
   {
     year: "2019 – 2021",
-    title: "Junior Frontend Developer",
-    company: "Altorcks Software",
-    place: "Coimbatore",
-    icon: <FaReact className="exp-icon" />,
-    desc: [
-      "Built responsive apps using HTML, CSS, JavaScript, and React.",
-      "Worked on 3 client projects in cross-functional teams.",
-      "Improved maintainability with reusable UI components.",
-    ],
-  },
-  {
-    year: "2018 – 2019",
-    title: "Frontend Development Trainee",
-    company: "Hogarth Worldwide",
-    place: "Pune",
-    icon: <FaHtml5 className="exp-icon" />,
-    desc: [
-      "Trained in HTML, CSS, JavaScript, and jQuery.",
-      "Contributed to 2 live projects under mentorship.",
-      "Learned production-level development standards.",
-    ],
-  },
-  {
-    year: "2016 – 2018",
-    title: "Content Moderator & Designer",
-    company: "Teleperformance",
-    place: "Mohali",
+    title: "Frontend Developer",
+    company: "Teleperformance Global Business Pvt Ltd",
+    place: "Mohali, India",
     icon: <FaCss3Alt className="exp-icon" />,
     desc: [
-      "Reviewed and moderated global digital content.",
-      "Worked with Photoshop, Figma, and Illustrator.",
-      "Supported digital brand presence and marketing.",
+      "Maintained and enhanced internal dashboards using HTML, CSS, JavaScript, and ReactJS.",
+      "Improved UI workflows and application performance through efficient state management.",
+      "Worked with QA and business teams to ensure reliable user experience.",
+    ],
+  },
+  {
+    year: "2019 (Feb – May)",
+    title: "Web Developer (Contract)",
+    company: "AG Resources (India) Pvt Ltd",
+    place: "Coimbatore, Tamil Nadu",
+    icon: <FaLaptopCode className="exp-icon" />,
+    desc: [
+      "Assisted in frontend development using HTML5, CSS3, and JavaScript.",
+      "Implemented UI improvements based on client feedback for B2B web solutions.",
+      "Gained strong understanding of responsive layouts and browser compatibility.",
+    ],
+  },
+  {
+    year: "2017 (May) – 2018 (Sep)",
+    title: "Frontend Developer (Contract)",
+    company: "Teleperformance Global Business Pvt Ltd (First Tenure)",
+    place: "Jaipur, Rajasthan, India",
+    icon: <FaCss3Alt className="exp-icon" />,
+    desc: [
+      "Developed internal dashboards using HTML, CSS, and JavaScript for enterprise workflows.",
+      "Learned modern web fundamentals and UI component design.",
+      "Recognized for fast learning and consistency in project delivery.",
     ],
   },
 ];
+
 
 export default function ExperienceSection() {
   useEffect(() => {
