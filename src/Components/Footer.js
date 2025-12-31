@@ -52,7 +52,7 @@ export default function Footer() {
                 <div className="contact-list mb-4">
                   <div className="contact-item">
                     <i className="bi bi-geo-alt text-accent"></i>
-                    <span>{CONTACT.address}</span>
+                    <a href={`tel:${CONTACT.phone}`}>{CONTACT.address}</a>
                   </div>
                   <div className="contact-item">
                     <i className="bi bi-telephone text-accent"></i>
