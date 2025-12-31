@@ -1,74 +1,165 @@
+/* Portfolio.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap');
 
 .portfolio-dark {
-  background: var(--bg-color);
-  color: var(--text-color);
+  background: var(--bg-color, #111);
+  color: var(--text-color, #fff);
   font-family: "Inter", sans-serif;
 }
 
-/* Titles */
-.portfolio-title {
+/* Section Title - Same as other sections */
+.section-title {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  font-size: 1.8rem;
-  letter-spacing: 1.5px;
-}
-.portfolio-sub {
-  color: var(--accent-color);
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 2px;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  color: #fff;
 }
 
-/* Filters (wrapped, no scroll) */
-.filter-buttons {
+.section-title .highlight {
+  color: var(--accent-color, #ff3b3b);
+}
+
+.underline-wipe {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-wipe::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 3px;
+  width: 0;
+  background: var(--accent-color, #ff3b3b);
+  transition: width 0.6s ease;
+}
+
+.text-center:hover .underline-wipe::after {
+  width: 100%;
+}
+
+.portfolio-sub {
+  color: var(--text-color, #aaa);
+  font-size: 1rem;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Category Tabs */
+.category-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-}
-.filter-btn {
-  border: 1px solid rgba(255,255,255,0.1);
-  background: transparent;
-  color: var(--text-color);
-  padding: 6px 16px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 0.85rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.filter-btn:hover { transform: translateY(-2px); }
-.filter-btn.active {
-  background: var(--accent-color);
-  color: #fff;
-  border: none;
+  gap: 0.75rem;
+  justify-content: center;
 }
 
-/* Cards */
+.category-tab {
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-color, #fff);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.category-tab:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.category-tab.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: currentColor;
+}
+
+.tab-count {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+}
+
+/* Project Cards */
 .portfolio-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  background: var(--card-bg, #1a1a1a);
+  border: 1px solid var(--card-border, #333);
   border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  height: 100%;
+  position: relative;
 }
+
+.category-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+}
+
 .portfolio-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent-color, #ff3b3b);
 }
+
+.portfolio-img-container {
+  position: relative;
+  overflow: hidden;
+}
+
 .portfolio-img {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
+
+.portfolio-card:hover .portfolio-img {
+  transform: scale(1.05);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.category-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .portfolio-body {
-  padding: 1rem;
-  text-align: left;
+  padding: 1.25rem;
 }
+
 .portfolio-name {
   font-family: "Poppins", sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #fff;
 }
 
 /* Tags */
@@ -76,18 +167,196 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  margin-bottom: 1rem;
 }
+
 .tag-badge {
-  background: rgba(255,59,59,0.15);
-  color: var(--accent-color);
+  background: rgba(255, 59, 59, 0.15);
+  color: var(--accent-color, #ff3b3b);
   font-size: 0.75rem;
   padding: 3px 8px;
   border-radius: 12px;
   font-weight: 600;
 }
 
-/* Responsive */
+/* Buttons */
+.btn-danger {
+  background: var(--accent-color, #ff3b3b);
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 59, 59, 0.3);
+}
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Category Dots */
+.category-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Tech Cards */
+.tech-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.tech-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Empty State */
+.empty-state {
+  padding: 3rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .category-tab {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  
+  .tab-name {
+    display: none;
+  }
+  
+  .category-tab {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .tab-count {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .portfolio-img {
+    height: 160px;
+  }
+  
+  .portfolio-body {
+    padding: 1rem;
+  }
+  
+  .portfolio-name {
+    font-size: 1rem;
+  }
+  
+  .tech-card {
+    padding: 0.75rem;
+  }
+  
+  .tech-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
 @media (max-width: 576px) {
-  .portfolio-img { height: 160px; }
-  .portfolio-name { font-size: 1rem; }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .portfolio-sub {
+    font-size: 0.9rem;
+  }
+  
+  .portfolio-img {
+    height: 140px;
+  }
+  
+  .btn-sm {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .category-tabs {
+    gap: 0.5rem;
+  }
+  
+  .category-tab {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .tab-count {
+    width: 25px;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+  
+  .portfolio-tags {
+    gap: 4px;
+  }
+  
+  .tag-badge {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.portfolio-card {
+  animation: fadeIn 0.5s ease forwards;
 }

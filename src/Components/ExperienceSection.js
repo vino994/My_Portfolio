@@ -1,97 +1,53 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../Styles/ExperienceSection.css";
-import { FaLaptopCode, FaReact, FaHtml5, FaCss3Alt } from "react-icons/fa";
+import { FaLaptopCode, FaReact, FaHtml5 } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const EXPERIENCE = [
   {
     year: "2023 – Present",
-    title: "Career Break / MERN Stack Developer (Learning)",
-    company: "Independent / Upskilling",
+    title: "Independent Projects & Professional Practice",
+    company: "Self-Employed / Upskilling",
     place: "Coimbatore, Tamil Nadu",
     icon: <FaReact className="exp-icon" />,
     desc: [
-      "Completed hands-on MERN Full-Stack Developer course covering React, Node.js, Express, and MongoDB.",
-      "Built and deployed 3+ full-stack projects demonstrating CRUD operations and authentication.",
-      "Focused on reusable UI design, API integration, and scalable frontend architecture.",
+      "Developed frontend and MERN stack applications using React, Node.js, Express, and MongoDB.",
+      "Implemented secure JWT-based authentication systems safeguarding sensitive user data.",
+      "Built full-stack applications with authentication and CRUD operations across multiple project modules.",
+      "Deployed applications using Vercel, Netlify, and Render hosting platforms.",
+      "Focused on clean architecture, scalability, and maintainable UI solutions.",
     ],
   },
   {
-    year: "2023 (Jan – Jul)",
-    title: "React Developer",
-    company: "Vation Digital Pvt Ltd",
-    place: "Coimbatore, Tamil Nadu",
-    icon: <FaLaptopCode className="exp-icon" />,
-    desc: [
-      "Developed responsive and data-driven dashboards using ReactJS and Tailwind CSS.",
-      "Enhanced UI performance and accessibility, reducing page load times by 20%.",
-      "Collaborated with product teams to deliver optimized, user-friendly web interfaces.",
-    ],
-  },
-  {
-    year: "2022 (Mar – Dec)",
+    year: "Mar 2022 – Apr 2023",
     title: "Frontend Developer",
-    company: "Bee Logical Software Solutions / TrueTech Solutions Pvt Ltd",
-    place: "Pune / Chennai, India",
+    company: "Bee Logical Software Solutions",
+    place: "India",
     icon: <FaLaptopCode className="exp-icon" />,
     desc: [
-      "Delivered multiple client-facing web apps using ReactJS, Redux, and TypeScript.",
-      "Integrated RESTful APIs and implemented component-based architecture for maintainability.",
-      "Optimized UI rendering and ensured cross-browser compatibility.",
+      "Built interactive dashboards using React, HTML5, CSS3, and JavaScript supporting 5+ business modules.",
+      "Implemented Context API for state management, reducing prop drilling and improving maintainability.",
+      "Integrated backend APIs and enhanced application responsiveness, improving page load speed by ~20%.",
+      "Collaborated with backend and QA teams during Agile sprints, contributing to 100% on-time sprint deliveries.",
+      "Resolved UI bugs and performance issues, leading to a ~25% reduction in defects.",
     ],
   },
   {
-    year: "2021 (Jul) – 2022 (Mar)",
-    title: "UI Developer",
-    company: "WPP Marketing Communications India Pvt Ltd (Hogarth Worldwide)",
-    place: "Chennai, India",
+    year: "Apr 2020 – Feb 2022",
+    title: "Frontend Developer",
+    company: "Hogarth Worldwide",
+    place: "India",
     icon: <FaHtml5 className="exp-icon" />,
     desc: [
-      "Developed enterprise analytics dashboards using ReactJS and Redux.",
-      "Strengthened modular design patterns for UI consistency and scalability.",
-      "Worked closely with backend teams to integrate APIs and ensure seamless data flow.",
-    ],
-  },
-  {
-    year: "2019 – 2021",
-    title: "Frontend Developer",
-    company: "Teleperformance Global Business Pvt Ltd",
-    place: "Mohali, India",
-    icon: <FaCss3Alt className="exp-icon" />,
-    desc: [
-      "Maintained and enhanced internal dashboards using HTML, CSS, JavaScript, and ReactJS.",
-      "Improved UI workflows and application performance through efficient state management.",
-      "Worked with QA and business teams to ensure reliable user experience.",
-    ],
-  },
-  {
-    year: "2019 (Feb – May)",
-    title: "Web Developer (Contract)",
-    company: "AG Resources (India) Pvt Ltd",
-    place: "Coimbatore, Tamil Nadu",
-    icon: <FaLaptopCode className="exp-icon" />,
-    desc: [
-      "Assisted in frontend development using HTML5, CSS3, and JavaScript.",
-      "Implemented UI improvements based on client feedback for B2B web solutions.",
-      "Gained strong understanding of responsive layouts and browser compatibility.",
-    ],
-  },
-  {
-    year: "2017 (May) – 2018 (Sep)",
-    title: "Frontend Developer (Contract)",
-    company: "Teleperformance Global Business Pvt Ltd (First Tenure)",
-    place: "Jaipur, Rajasthan, India",
-    icon: <FaCss3Alt className="exp-icon" />,
-    desc: [
-      "Developed internal dashboards using HTML, CSS, and JavaScript for enterprise workflows.",
-      "Learned modern web fundamentals and UI component design.",
-      "Recognized for fast learning and consistency in project delivery.",
+      "Developed responsive web interfaces using React.js with cross-browser compatibility.",
+      "Built 10+ reusable UI components following enterprise brand standards.",
+      "Integrated REST APIs and handled dynamic data rendering across 10+ pages and UI views.",
+      "Improved UI consistency and maintainability, reducing QA rework by ~15-20%.",
     ],
   },
 ];
-
 
 export default function ExperienceSection() {
   useEffect(() => {
@@ -104,7 +60,7 @@ export default function ExperienceSection() {
         {/* Title */}
         <div className="text-center mb-5">
           <h2 className="section-title underline-wipe">
-            EXPERIENCE <span className="highlight">HISTORY</span>
+            WORK <span className="highlight">EXPERIENCE</span>
           </h2>
         </div>
 

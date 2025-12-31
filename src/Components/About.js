@@ -85,14 +85,14 @@ function About() {
             <div className="d-flex flex-wrap justify-content-between align-items-center gap-3">
               <div className="d-flex gap-3">
                 <a
-                  href={`${process.env.PUBLIC_URL}/vinod-sanjeev.pdf`}
-                  download="vinod-sanjeev.pdf"
+                  href={`${process.env.PUBLIC_URL}/Vinothsanjeev_resume.pdf`}
+                  download="Vinothsanjeev_resume.pdf.pdf"
                   className="btn btn-danger"
                 >
                   📄 Download Resume
                 </a>
                 <a
-                  href={`${process.env.PUBLIC_URL}/vinod-sanjeev.pdf`}
+                  href={`${process.env.PUBLIC_URL}/Vinothsanjeev_resume.pdf`}
                   target="_self"
                   rel="noopener noreferrer"
                   className="btn btn-outline-light"
