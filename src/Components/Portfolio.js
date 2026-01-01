@@ -31,8 +31,8 @@ const ITEMS = [
     id: "delivery",
     src: p1,
     title: "Delivery App",
-    tags: ["React", "Bootstrap"],
-    category: "react-tailwind",
+    tags: ["HTML", "CSS", "JavaScript"],
+    category: "html-css-js",
     liveUrl: "https://vino994.github.io/delivery-app/",
     codeUrl: "https://github.com/vino994/delivery-app"
   },
@@ -58,8 +58,8 @@ const ITEMS = [
     id: "movie",
     src: p4,
     title: "Movie App",
-    tags: ["React"],
-    category: "react-tailwind",
+    tags: ["MERN", "Full Stack", "Authentication"],
+    category: "mern-stack",
     liveUrl: "https://j-movie-app.vercel.app",
     codeUrl: "https://github.com/vino994/J-Movie-App"
   },
