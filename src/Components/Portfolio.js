@@ -12,6 +12,9 @@ import p6 from "../Assets/expense.png";
 import p7 from "../Assets/static.PNG";
 import p8 from "../Assets/project-7.PNG";
 import p9 from "../Assets/hotel.PNG";
+import p10 from "../Assets/p-1.PNG";
+import p11 from "../Assets/p-2.PNG";
+
 
 /* ================= PORTFOLIO DATA WITH CATEGORIES ================= */
 const ITEMS = [
@@ -100,7 +103,25 @@ const ITEMS = [
     category: "mern-stack",
     liveUrl: "https://personal-expenses-app-chi.vercel.app/",
     codeUrl: "https://github.com/vino994/personal-expenses-app"
-  }
+  },
+    {
+    id: "recipes",
+    src: p10,
+    title: "Recipe Ai",
+    tags: ["MERN", "Full Stack", "Authentication"],
+    category: "mern-stack",
+    liveUrl: "https://recipe-ai-theta.vercel.app/recipe",
+    codeUrl: "https://github.com/vino994/RecipeAi"
+  },
+    {
+    id: "startup",
+    src: p11,
+    title: "Tech Startup Landing",
+    tags: ["React"],
+    category: "react-tailwind",
+    liveUrl: "https://jstudio-startup.vercel.app/",
+    codeUrl: "https://github.com/vino994/jstudio-startup"
+  },
 ];
 
 /* ================= CATEGORIES ================= */

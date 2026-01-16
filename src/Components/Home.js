@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import "bootstrap/dist/css/bootstrap.min.css";
+import FloatingTextBackground from "./FloatingTextBackground";
+import "../Styles/FloatingTextBackground.css";
+
+
 import "../Styles/Home.css";
 import Profile from "../Assets/profile2.png";
 
@@ -15,6 +19,7 @@ function Home() {
 
   return (
     <div className="home-container d-flex position-relative">
+      <FloatingTextBackground />
       {/* Top-right actions (theme toggle + resume) */}
       <div className="top-actions">
         <button
@@ -26,7 +31,7 @@ function Home() {
 
         {/* Resume Download */}
         <a
-          href={`${process.env.PUBLIC_URL}/vinothsanjeev_resume`}
+          href={`${process.env.PUBLIC_URL}/vinothsanjeev_resume.pdf`}
           download="vinothsanjeev_resume.pdf"
           className="resume-top-btn"
           aria-label="Download Resume"

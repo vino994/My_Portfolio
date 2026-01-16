@@ -170,3 +170,46 @@
     transform: none;
   }
 }
+
+/* Wave decoration */
+.wave-deco {
+  position: absolute;
+  top: 50%;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  transform: translateY(-50%);
+  animation: floatWave 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.wave-left {
+  left: -80px;
+  background: radial-gradient(circle, var(--accent-color), transparent 70%);
+}
+
+.wave-right {
+  right: -80px;
+  background: radial-gradient(circle, var(--accent-color), transparent 70%);
+}
+
+/* Float animation */
+@keyframes floatWave {
+  0% {
+    transform: translateY(-50%) translateX(0);
+  }
+  50% {
+    transform: translateY(-60%) translateX(10px);
+  }
+  100% {
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* Keep content above wave */
+.timeline-content {
+  position: relative;
+  z-index: 2;
+}

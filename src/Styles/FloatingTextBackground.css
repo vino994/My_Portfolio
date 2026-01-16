@@ -1,0 +1,72 @@
+.floating-text-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Theme backgrounds */
+.floating-text-container.dark {
+  background: radial-gradient(circle at 30% 30%, #111, #000);
+}
+
+.floating-text-container.light {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #f3f3f3);
+}
+
+/* Floating words */
+.floating-text {
+  position: absolute;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  animation: floatRandom linear infinite;
+  transition: all 0.4s ease;
+  user-select: none;
+  white-space: nowrap;
+  pointer-events: auto;
+  opacity: 0.15;
+}
+
+/* Dark theme text */
+.floating-text-container.dark .floating-text {
+  color: rgba(255, 255, 255, 0.15);
+}
+
+/* Light theme text */
+.floating-text-container.light .floating-text {
+  color: rgba(0, 0, 0, 0.12);
+}
+
+/* Hover glow */
+.floating-text:hover {
+  background: linear-gradient(90deg, #00cfff, #1e3a8a, #6366f1, #00cfff);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 2s linear infinite;
+  filter: brightness(1.8) drop-shadow(0 0 6px rgba(0, 140, 255, 0.6));
+  transform: scale(1.3);
+  opacity: 1;
+}
+
+@keyframes floatRandom {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(20px, -30px); }
+  50%  { transform: translate(-30px, 20px); }
+  75%  { transform: translate(15px, 30px); }
+  100% { transform: translate(0, 0); }
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% center; }
+  100% { background-position: 300% center; }
+}
+
+/* Mobile: reduce noise */
+@media (max-width: 768px) {
+  .floating-text {
+    font-size: 7px !important;
+    opacity: 0.08;
+  }
+}

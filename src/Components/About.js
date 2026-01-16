@@ -86,7 +86,7 @@ function About() {
               <div className="d-flex gap-3">
                 <a
                   href={`${process.env.PUBLIC_URL}/Vinothsanjeev_resume.pdf`}
-                  download="Vinothsanjeev_resume.pdf.pdf"
+                  download="Vinothsanjeev_resume.pdf"
                   className="btn btn-danger"
                 >
                   📄 Download Resume
