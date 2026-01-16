@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import About from './Components/About';
@@ -10,29 +10,36 @@ import Portfolio from './Components/Portfolio';
 import ProjectViewer from './Components/ProjectViewer';
 import Footer from './Components/Footer';
 import ScrollCircle from "./Components/ScrollCircle";
-import './Styles/ScrollCircle.css';
+import Loader from "./Components/Loader";
+
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              <Home />
-               <ScrollCircle />
-              <section id="about"><About /></section>
-              <section id="portfolio"><Portfolio /></section>
-              <section id="experience"><ExperienceSection /></section>
-              <section id="services"><ServicesFramer /></section>
-              <section id="education"><Education /></section>
-              <section id="skills"><SkillsClients /></section>
-              <section id="contact"><Footer /></section>
-            </div>
-          }
-        />
-        <Route path="/project/:id" element={<ProjectViewer />} />
-      </Routes>
+      {loading && <Loader onFinish={() => setLoading(false)} />}
+
+      {!loading && (
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div>
+                <Home />
+                <ScrollCircle />
+                <section id="about"><About /></section>
+                <section id="portfolio"><Portfolio /></section>
+                <section id="experience"><ExperienceSection /></section>
+                <section id="services"><ServicesFramer /></section>
+                <section id="education"><Education /></section>
+                <section id="skills"><SkillsClients /></section>
+                <section id="contact"><Footer /></section>
+              </div>
+            }
+          />
+          <Route path="/project/:id" element={<ProjectViewer />} />
+        </Routes>
+      )}
     </Router>
   );
 }

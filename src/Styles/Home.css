@@ -215,6 +215,13 @@ body.dark-theme .profile-glow {
 body:not(.dark-theme) .profile-glow {
   background: radial-gradient(circle, rgba(0, 0, 0, 0.15), transparent 70%);
 }
+body.light-theme .profile-img {
+  mix-blend-mode: multiply;
+  filter: contrast(1.2) brightness(0.9);
+}
+body.light-theme .loader-img {
+  mix-blend-mode: multiply;
+}
 
 
 /* Top-right actions container */
