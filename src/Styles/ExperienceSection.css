@@ -213,3 +213,151 @@
   position: relative;
   z-index: 2;
 }
+/* === Ripple Background === */
+.ripple-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ripple base */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(238, 11, 11, 0.4);
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  animation: rippleWave 6s linear infinite;
+  filter: drop-shadow(0 0 20px rgba(228, 11, 47, 0.5));
+}
+
+/* Different timings & positions */
+.r1 {
+  top: 30%;
+  left: 20%;
+  animation-delay: 0s;
+}
+.r2 {
+  top: 60%;
+  left: 70%;
+  animation-delay: 2s;
+}
+.r3 {
+  top: 40%;
+  left: 50%;
+  animation-delay: 4s;
+}
+
+@keyframes rippleWave {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.8;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(18);
+    opacity: 0;
+  }
+}
+
+/* Make sure content is above background */
+.experience-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-section > .container {
+  position: relative;
+  z-index: 2;
+}
+/* === Cinematic Background === */
+.cinematic-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ripple */
+.cinematic-ripple {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-color);
+  filter: drop-shadow(var(--accent-color));
+  animation: rippleExpand 6s ease-out forwards;
+}
+
+@keyframes rippleExpand {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(20);
+    opacity: 0;
+  }
+}
+
+/* Ensure content above */
+.experience-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* === Glassmorphism Cards === */
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 40px rgba(0, 140, 255, 0.1);
+}
+
+/* === Glow Sweep === */
+.glass-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(204, 69, 69, 0.25),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.glass-card:hover::after {
+  opacity: 1;
+}
+
+/* === Reveal Effect === */
+.reveal-text {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: revealIn 1.2s ease forwards;
+}
+
+@keyframes revealIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

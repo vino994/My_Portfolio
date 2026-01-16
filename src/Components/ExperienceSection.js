@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "../Styles/ExperienceSection.css";
 import { FaLaptopCode, FaReact, FaHtml5 } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const EXPERIENCE = [
   {
@@ -49,13 +47,31 @@ const EXPERIENCE = [
 ];
 
 export default function ExperienceSection() {
+  const rippleContainer = useRef(null);
+
   useEffect(() => {
-    AOS.init({ duration: 1200, once: true });
+    const spawnRipple = () => {
+      const ripple = document.createElement("span");
+      ripple.className = "cinematic-ripple";
+
+      ripple.style.left = Math.random() * 100 + "%";
+      ripple.style.top = Math.random() * 100 + "%";
+
+      rippleContainer.current.appendChild(ripple);
+
+      setTimeout(() => {
+        ripple.remove();
+      }, 6000);
+    };
+
+    const interval = setInterval(spawnRipple, 2000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <section className="experience-section">
-      <div className="glow-bg"></div>
+      {/* Fullscreen ripple background */}
+      <div className="cinematic-bg" ref={rippleContainer}></div>
 
       <div className="container">
         <h2 className="section-title">
@@ -67,15 +83,11 @@ export default function ExperienceSection() {
             <div
               key={index}
               className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
-              data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}
             >
-              <div className="timeline-line"></div>
               <div className="timeline-dot"></div>
               <div className="timeline-year">{item.year}</div>
 
-              <div className="wave-glow"></div>
-
-              <div className="timeline-content glass-card">
+              <div className="timeline-content glass-card reveal-text">
                 <div className="d-flex align-items-center mb-2">
                   {item.icon}
                   <h4>{item.title}</h4>
