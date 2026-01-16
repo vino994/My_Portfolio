@@ -1,84 +1,124 @@
 .loader-screen {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, #0a0a0a, #000);
+  background: #000; /* PURE BLACK */
   display: grid;
   place-items: center;
   z-index: 999999;
+  overflow: hidden;
   transition: opacity 1s ease, transform 1s ease;
+  isolation: isolate; /* REQUIRED for blend */
 }
 
 .loader-screen.hide {
   opacity: 0;
-  transform: scale(1.2);
+  transform: scale(1.1);
   pointer-events: none;
 }
 
 .loader-center {
   text-align: center;
   position: relative;
+  z-index: 2;
 }
+
+/* ===============================
+   REAL BLEND SYSTEM
+   =============================== */
 
 .loader-img {
   width: 160px;
   height: 160px;
   object-fit: cover;
-  border-radius: 16px;
-  mix-blend-mode: screen;
-  filter: grayscale(100%) contrast(1.2);
-  z-index: 2;
-  position: relative;
+  border-radius: 20px;
   animation: float 3s ease-in-out infinite;
+  transition: all 0.6s ease;
 }
+
+/* DARK MODE */
+body.dark-theme .loader-img {
+  mix-blend-mode: screen;
+  filter: brightness(1.25) contrast(1.15);
+  opacity: 0.95;
+}
+
+/* LIGHT MODE */
+body:not(.dark-theme) .loader-img {
+  mix-blend-mode: multiply;
+  filter: brightness(0.95) contrast(1.1);
+  opacity: 0.95;
+}
+
+/* ===============================
+   TEXT
+   =============================== */
 
 .loader-title {
   font-family: "Bungee", sans-serif;
   font-size: 2rem;
   margin-top: 20px;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   color: white;
 }
 
-.loader-title span {
+.loader-title .red {
   color: #ff3b3b;
 }
 
 .loader-sub {
   font-size: 0.9rem;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   opacity: 0.7;
-  margin-top: 5px;
+  margin-top: 6px;
   color: white;
 }
 
-/* Ripple wave */
-.ripple {
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,59,59,0.4), transparent 60%);
-  filter: blur(30px);
-  animation: ripple 3s infinite;
-  z-index: 1;
-}
-
-@keyframes ripple {
-  0% {
-    transform: scale(0.6);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(1.6);
-    opacity: 0;
-  }
-}
-
+/* Floating */
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+  50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
-.loader-title span.red {
-  color: #ff3b3b;
+/* ===============================
+   GLOW SYSTEM
+   =============================== */
+
+.glow-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/* Soft aura */
+.glow-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(circle, rgba(255,59,59,0.35), transparent 65%);
+  filter: blur(40px);
+  z-index: -1;
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Outer wave */
+.glow-wrap::after {
+  content: "";
+  position: absolute;
+  inset: -50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,59,59,0.2), transparent 70%);
+  filter: blur(60px);
+  z-index: -2;
+  animation: wavePulse 4s ease-out infinite;
+}
+
+/* Pulse animations */
+@keyframes glowPulse {
+  0% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+  100% { opacity: 0.4; transform: scale(0.9); }
+}
+
+@keyframes wavePulse {
+  0% { opacity: 0.6; transform: scale(0.7); }
+  100% { opacity: 0; transform: scale(1.6); }
 }

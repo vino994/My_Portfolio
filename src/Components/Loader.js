@@ -26,12 +26,12 @@ export default function Loader({ onFinish }) {
           if (j > fullSub.length) clearInterval(subInterval);
         }, 60);
       }
-    }, 100);
+    }, 90);
 
     const timer = setTimeout(() => {
       setHide(true);
       setTimeout(onFinish, 1000);
-    }, 3500);
+    }, 4000);
 
     return () => {
       clearTimeout(timer);
@@ -41,21 +41,22 @@ export default function Loader({ onFinish }) {
 
   return (
     <div className={`loader-screen ${hide ? "hide" : ""}`}>
-      <div className="loader-center">
-        <div className="ripple"></div>
+     <div className="loader-center">
+  <div className="glow-wrap">
+    <img src={Profile} alt="profile" className="loader-img" />
+  </div>
 
-        <img src={Profile} alt="profile" className="loader-img" />
+  <h1 className="loader-title">
+    {nameText.split(" ").map((word, i) => (
+      <span key={i} className={word === "SANJEEVI" ? "red" : ""}>
+        {word}{" "}
+      </span>
+    ))}
+  </h1>
 
-        <h1 className="loader-title">
-          {nameText.split(" ").map((word, i) => (
-            <span key={i} className={word === "SANJEEVI" ? "red" : ""}>
-              {word}{" "}
-            </span>
-          ))}
-        </h1>
+  <p className="loader-sub">{subText}</p>
+</div>
 
-        <p className="loader-sub">{subText}</p>
-      </div>
     </div>
   );
 }
