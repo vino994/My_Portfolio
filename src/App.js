@@ -9,7 +9,8 @@ import SkillsClients from './Components/SkillsClients';
 import Portfolio from './Components/Portfolio';
 import ProjectViewer from './Components/ProjectViewer';
 import Footer from './Components/Footer';
-
+import ScrollCircle from "./Components/ScrollCircle";
+import './Styles/ScrollCircle.css';
 export default function App() {
   return (
     <Router>
@@ -19,6 +20,7 @@ export default function App() {
           element={
             <div>
               <Home />
+               <ScrollCircle />
               <section id="about"><About /></section>
               <section id="portfolio"><Portfolio /></section>
               <section id="experience"><ExperienceSection /></section>

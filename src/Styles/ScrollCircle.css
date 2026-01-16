@@ -1,0 +1,46 @@
+.scroll-circle-wrapper {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+
+.progress-ring {
+  position: absolute;
+  transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+  fill: transparent;
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+.progress-ring-fill {
+  fill: transparent;
+  stroke: #ff3b3b;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear;
+  filter: drop-shadow(0 0 6px rgba(255, 59, 59, 0.8));
+}
+
+.scroll-circle-btn {
+  width: 52px;
+  height: 52px;
+  background: radial-gradient(circle at top, #222, #000);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 0 20px rgba(255, 59, 59, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.scroll-circle-wrapper:hover .scroll-circle-btn {
+  transform: scale(1.1);
+}
